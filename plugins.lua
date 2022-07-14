@@ -9,6 +9,14 @@ require'lualine'.setup{
             }
         },
         lualine_x = {'encoding', 'fileformat', 'filetype', 'branch','diff'}
+    },
+    tabline = {
+      lualine_a = {},
+      lualine_b = {'branch'},
+      lualine_c = {'filename'},
+      lualine_x = {},
+      lualine_y = {},
+      lualine_z = {}
     }
 }
 
@@ -23,7 +31,7 @@ require'lspconfig'.pyright.setup{
     }
 }
 
-
+-- Rust LSP Configuration
 require'lspconfig'.rust_analyzer.setup({
     settings = {
         ["rust-analyzer"] = {
@@ -35,29 +43,42 @@ require'lspconfig'.rust_analyzer.setup({
             },
         }
     },
-    --capabilities = capabilities,
 })
 
 require "lsp_signature".setup()
 
 -- Treesitter config
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = {"python", "rust"},     -- one of "all", "language", or a list of languages
+  ensure_installed = {"python", "rust", "julia"},     -- one of "all", "language", or a list of languages
   highlight = {
-    enable = true,              -- false will disable the whole extension
+    enable = true,       -- false will disable the whole extension
     disable = { "c", },  -- list of language that will be disabled
   },
 }
 
--- Iron.nvim config
-local iron = require('iron')
-
-iron.core.set_config {
-  preferred = {
-    python = "ipython"
-  }
+-- Iron.nvim
+iron = require("iron.core")
+iron.setup {
+    config = {
+        should_map_plug = false,
+        scratch_repl = true,
+        repl_definition = {
+            python = {
+                command = {"ipython"},
+                format = require("iron.fts.common").bracketed_paste
+            }
+        }
+    },
+    keymaps = {
+        send_motion = "ctr",
+        visual_send = "ctr",
+    }
 }
 
+-- Telescope extras
+require("telescope").load_extension "file_browser"
+
+-- Autocompletion engine
 require'compe'.setup {
   enabled = true;
   autocomplete = true;
