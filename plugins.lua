@@ -1,24 +1,37 @@
 require'lualine'.setup{
     options = { theme = 'tokyonight' },
     sections = {
-        lualine_c = {
-            {'filename', path=1},
+        lualine_a = {'mode'},
+        lualine_b = {
             {
                 'diagnostics',
                 sources = {'nvim_lsp'}
             }
         },
-        lualine_x = {'encoding', 'fileformat', 'filetype', 'branch','diff'}
+        lualine_c = {},
+        lualine_x = {'encoding', 'fileformat', 'filetype'}
     },
     tabline = {
       lualine_a = {},
-      lualine_b = {'branch'},
-      lualine_c = {'filename'},
+      lualine_b = {'branch', 'diff'},
+      lualine_c = {{'filename', path=3}},
       lualine_x = {},
       lualine_y = {},
       lualine_z = {}
     }
 }
+
+require('nvim-window').setup({
+  normal_hl = 'BlackOnLightYellow',
+  hint_hl = 'Bold',
+  border = 'none',
+   -- The characters available for hinting windows.
+  chars = {
+    'u', 'i', 'o', 'n', 'm', 'h', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o',
+    'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
+  },
+
+})
 
 -- Python LSP Configuration
 require'lspconfig'.pyright.setup{
@@ -76,7 +89,7 @@ iron.setup {
 }
 
 -- Telescope extras
-require("telescope").load_extension "file_browser"
+--require("telescope").load_extension "file_browser"
 
 -- Autocompletion engine
 require'compe'.setup {

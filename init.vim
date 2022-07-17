@@ -28,8 +28,11 @@ Plug 'EdenEast/nightfox.nvim'
 Plug 'Pocco81/Catppuccino.nvim'
 Plug 'mcchrish/zenbones.nvim'
 
+" Make it easier to jump between windows
+Plug 'https://gitlab.com/yorickpeterse/nvim-window.git'
+
+
 " Jump fast!
-"Plug 'easymotion/vim-easymotion'
 Plug 'ggandor/lightspeed.nvim'
 
 " Easy line commenting
@@ -57,7 +60,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-telescope/telescope-file-browser.nvim'
+
+Plug 'tpope/vim-vinegar'
 
 " Better buffer deletion. Just for BD and BD!
 Plug 'qpkorr/vim-bufkill'
@@ -69,8 +73,7 @@ Plug 'ray-x/lsp_signature.nvim'
 
 " Missing stuff
 " - inlay hints. This was done with lsp extensions but its deprecated
-" - lightbulb for code actions
-"Plug 'kosayoda/nvim-lightbulb'
+" - kosayoda/lightbulb for code actions
 
 " Autocompletion
 Plug 'hrsh7th/nvim-compe'
@@ -90,11 +93,11 @@ Plug 'wincent/loupe'
 " A floating terminal
 Plug 'voldikss/vim-floaterm'
 
-" Autoformatting on save
+" Autoformatting on save. Just to remove trailing white space
 Plug 'Chiel92/vim-autoformat'
 
 " Aesthetics
-Plug 'hoob3rt/lualine.nvim'
+Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'ryanoasis/vim-devicons'
 
@@ -177,6 +180,12 @@ if executable(s:clip)
     augroup END
 endif
 
+" -----------
+" Window nav
+" -----------
+map <silent> <C-w> :lua require('nvim-window').pick()<CR>
+hi BlackOnLightYellow guifg=#000000 guibg=#f2de91
+
 " ----------
 "  Terminal
 " ----------
@@ -215,10 +224,10 @@ nnoremap [d <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
 "autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()
 
 " Pretty diagnostics signs
-call sign_define('DiagnosticSignError',       { 'text': '' ,'texthl': 'DiagnosticSignError'       })
-call sign_define('DiagnosticSignWarn',     { 'text': ' ','texthl': 'DiagnosticSignWarn'     })
-call sign_define('DiagnosticSignInfo', { 'text': '', 'texthl': 'DiagnosticSignInfo' })
-call sign_define('DiagnosticSignHint',        { 'text': '', 'texthl': 'DiagnosticSignHint'        })
+call sign_define('DiagnosticSignError',  { 'text': '' ,'texthl': 'DiagnosticSignError' })
+call sign_define('DiagnosticSignWarn',   { 'text': ' ','texthl': 'DiagnosticSignWarn'  })
+call sign_define('DiagnosticSignInfo',   { 'text': '', 'texthl': 'DiagnosticSignInfo'  })
+call sign_define('DiagnosticSignHint',   { 'text': '', 'texthl': 'DiagnosticSignHint'  })
 
 " -----------
 "  Telescope
@@ -227,7 +236,6 @@ nnoremap ; <cmd>Telescope buffers<cr>
 nnoremap <leader>t <cmd>Telescope git_files<cr>
 nnoremap <leader>g0 <cmd>Telescope lsp_document_symbols<cr>
 nnoremap <leader>g <cmd>Telescope live_grep<cr>
-nnoremap - <cmd>Telescope file_browser<cr>
 
 " --------
 "  Wilder
@@ -254,14 +262,14 @@ cmap <expr> <C-D> wilder#can_accept_completion() ? wilder#accept_completion(0) :
 "let s:highlighters = [wilder#pcre2_highlighter()]
 
 call wilder#set_option('renderer', wilder#popupmenu_renderer({
-      \ 'highlighter': wilder#basic_highlighter(),
-      \ 'left': [
-      \   ' ', wilder#popupmenu_devicons(),
-      \ ],
-      \ 'right': [
-      \   ' ', wilder#popupmenu_scrollbar(),
-      \ ],
-      \ }))
+  \ 'highlighter': wilder#basic_highlighter(),
+  \ 'left': [
+  \   ' ', wilder#popupmenu_devicons(),
+  \ ],
+  \ 'right': [
+  \   ' ', wilder#popupmenu_scrollbar(),
+  \ ],
+  \ }))
 
 " ----------
 "  Startify
@@ -309,7 +317,6 @@ let g:custom_header = [
 \ '⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⡿⡿⠿⠛⠛⠉⠁⣰⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀           ⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣆⠈⠉⠛⠛⠿⢿⢿⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀',
 \ ]
 let g:startify_custom_header ='startify#center(g:custom_header)'
-"https://www.asciiart.eu/space/telescopes
 
 " -----------------------
 "  Other Plugin settings
