@@ -20,10 +20,11 @@ Plug 'gelguy/wilder.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'shaunsingh/moonlight.nvim'
 Plug 'NTBBloodbath/doom-one.nvim'
 Plug 'Th3Whit3Wolf/space-nvim'
+Plug 'folke/tokyonight.nvim'
+Plug 'marko-cerovac/material.nvim'
 Plug 'rafamadriz/neon'
 Plug 'bluz71/vim-nightfly-guicolors'
 Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'folke/tokyonight.nvim'
 Plug 'EdenEast/nightfox.nvim'
 Plug 'Pocco81/Catppuccino.nvim'
 Plug 'mcchrish/zenbones.nvim'
@@ -184,7 +185,6 @@ endif
 " Window nav
 " -----------
 map <silent> <C-w> :lua require('nvim-window').pick()<CR>
-hi BlackOnLightYellow guifg=#000000 guibg=#f2de91
 
 " ----------
 "  Terminal
@@ -199,12 +199,12 @@ tnoremap <silent> <F3> <C-\><C-N>:FloatermToggle<CR>
 " -------------
 "  Colorscheme
 " -------------
-if $TERM == "screen-256color"
-    colorscheme tokyonight
-else
-    " Fallback for terminals supporting less colors.
-    colorscheme dracula
-endif
+"if $TERM == "screen-256color"
+    "colorscheme tokyonight
+"else
+    "" Fallback for terminals supporting less colors.
+    "colorscheme dracula
+"endif
 
 " -------------------
 "  LSP Configuration
@@ -224,10 +224,10 @@ nnoremap [d <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
 "autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()
 
 " Pretty diagnostics signs
-call sign_define('DiagnosticSignError',  { 'text': '' ,'texthl': 'DiagnosticSignError' })
-call sign_define('DiagnosticSignWarn',   { 'text': ' ','texthl': 'DiagnosticSignWarn'  })
-call sign_define('DiagnosticSignInfo',   { 'text': '', 'texthl': 'DiagnosticSignInfo'  })
-call sign_define('DiagnosticSignHint',   { 'text': '', 'texthl': 'DiagnosticSignHint'  })
+call sign_define('DiagnosticSignError', {'text': '' ,'texthl': 'DiagnosticSignError'})
+call sign_define('DiagnosticSignWarn',  {'text': ' ','texthl': 'DiagnosticSignWarn' })
+call sign_define('DiagnosticSignInfo',  {'text': '', 'texthl': 'DiagnosticSignInfo' })
+call sign_define('DiagnosticSignHint',  {'text': '', 'texthl': 'DiagnosticSignHint' })
 
 " -----------
 "  Telescope
@@ -337,7 +337,6 @@ nmap <CR> <Plug>(LoupeClearHighlight)
 " Depends on the text object defined in vim-textobj-hydrogen
 " You first need to be connected to IronRepl
 nmap ]x ctrih]h<CR><CR>
-
 
 let g:rooter_manual_only = 1
 

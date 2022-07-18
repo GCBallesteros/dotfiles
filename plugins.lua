@@ -1,5 +1,14 @@
+-- Colorscheme
+vim.g.neon_style = "default"
+vim.g.neon_italic_keyword = true
+vim.g.neon_italic_function = true
+vim.g.neon_transparent = false
+
+vim.cmd[[colorscheme neon]]
+
+-- Statusline
 require'lualine'.setup{
-    options = { theme = 'tokyonight' },
+    options = { theme = 'neon' },
     sections = {
         lualine_a = {'mode'},
         lualine_b = {
@@ -21,13 +30,15 @@ require'lualine'.setup{
     }
 }
 
+-- Faster window selection
+vim.api.nvim_set_hl(0, 'NVIMWINDOW', { fg = "#000000", bg = "#f2de91" })
 require('nvim-window').setup({
-  normal_hl = 'BlackOnLightYellow',
+  normal_hl = 'NVIMWINDOW',
   hint_hl = 'Bold',
   border = 'none',
    -- The characters available for hinting windows.
   chars = {
-    'u', 'i', 'o', 'n', 'm', 'h', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o',
+    'j', 'k', 'l', 'u', 'i', 'o', 'n', 'm',
     'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
   },
 
@@ -87,9 +98,6 @@ iron.setup {
         visual_send = "ctr",
     }
 }
-
--- Telescope extras
---require("telescope").load_extension "file_browser"
 
 -- Autocompletion engine
 require'compe'.setup {
