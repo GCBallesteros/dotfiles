@@ -77,7 +77,14 @@ Plug 'ray-x/lsp_signature.nvim'
 " - kosayoda/lightbulb for code actions
 
 " Autocompletion
-Plug 'hrsh7th/nvim-compe'
+"Plug 'hrsh7th/nvim-compe'
+
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-vsnip'
+Plug 'hrsh7th/nvim-cmp'
 
 " Line text object al, il
 Plug 'kana/vim-textobj-user'
@@ -104,6 +111,9 @@ Plug 'ryanoasis/vim-devicons'
 
 " Move to root of project. :Rooter
 Plug 'airblade/vim-rooter'
+
+" Show marks on gutter
+Plug 'chentoast/marks.nvim'
 call plug#end()
 
 " ------------------
@@ -122,6 +132,7 @@ set cursorline
 set laststatus=2
 set termguicolors
 set hidden
+set scl=auto:2-5
 
 " Search options
 set incsearch
@@ -162,6 +173,9 @@ nnoremap [q :cp<CR>
 :  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 :augroup END
 
+" Highlight hydrogen cells
+au BufRead,BufNewFile *.py syn match HYDROGEN /^\s*# %%.*$/
+
 " Have to install via pip3 neovim and yapf and point python3_host_prog to your python3
 let g:python3_host_prog=$HOME .'/.pyenv/versions/neovim3/bin/python'
 let g:python_host_prog=$HOME .'/.pyenv/versions/neovim/bin/python'
@@ -184,7 +198,7 @@ endif
 " -----------
 " Window nav
 " -----------
-map <silent> <C-w> :lua require('nvim-window').pick()<CR>
+map <silent> <C-w>w :lua require('nvim-window').pick()<CR>
 
 " ----------
 "  Terminal
@@ -217,8 +231,8 @@ nnoremap <silent>ga    <cmd>lua vim.lsp.buf.code_action()<CR>
 nnoremap <silent><Leader>rn <cmd>lua vim.lsp.buf.rename()<CR>
 
 " Diagnostics shortcuts
-nnoremap ]d <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
-nnoremap [d <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
+nnoremap ]d <cmd>lua vim.diagnostic.goto_next()<CR>
+nnoremap [d <cmd>lua vim.diagnostic.goto_prev()<CR>
 
 " Configure the actions lightbulb
 "autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()

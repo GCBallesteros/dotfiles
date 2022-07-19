@@ -6,6 +6,11 @@ vim.g.neon_transparent = false
 
 vim.cmd[[colorscheme neon]]
 
+-- Marks
+require'marks'.setup {
+    default_mappings=false
+}
+
 -- Statusline
 require'lualine'.setup{
     options = { theme = 'neon' },
@@ -30,6 +35,9 @@ require'lualine'.setup{
     }
 }
 
+-- highlight hydrogen cells
+vim.api.nvim_set_hl(0, 'HYDROGEN', {fg = "#000000", bg="#CCCCCC"})
+
 -- Faster window selection
 vim.api.nvim_set_hl(0, 'NVIMWINDOW', { fg = "#000000", bg = "#f2de91" })
 require('nvim-window').setup({
@@ -45,14 +53,18 @@ require('nvim-window').setup({
 })
 
 -- Python LSP Configuration
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
 require'lspconfig'.pyright.setup{
     settings = {
         python = {
             analysis = {
-                typeCheckingMode = "off"
-            }
+                typeCheckingMode = "basic",
+            },
         }
-    }
+    },
+    capabilities=capabilities,
 }
 
 -- Rust LSP Configuration
@@ -65,15 +77,17 @@ require'lspconfig'.rust_analyzer.setup({
             procMacro = {
                 enable = true
             },
+            checkOnSave = {
+                command = "clippy"
+            },
         }
     },
+    capabilities=capabilities,
 })
-
-require "lsp_signature".setup()
 
 -- Treesitter config
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = {"python", "rust", "julia"},     -- one of "all", "language", or a list of languages
+  ensure_installed = {"python", "rust", "julia", "lua"},
   highlight = {
     enable = true,       -- false will disable the whole extension
     disable = { "c", },  -- list of language that will be disabled
@@ -99,28 +113,24 @@ iron.setup {
     }
 }
 
--- Autocompletion engine
-require'compe'.setup {
-  enabled = true;
-  autocomplete = true;
-  debug = false;
-  min_length = 1;
-  preselect = 'enable';
-  throttle_time = 80;
-  source_timeout = 200;
-  incomplete_delay = 400;
-  max_abbr_width = 100;
-  max_kind_width = 100;
-  max_menu_width = 100;
-  documentation = true;
-
-  source = {
-    path = true;
-    buffer = true;
-    calc = true;
-    nvim_lsp = true;
-    nvim_lua = true;
-    vsnip = true;
-    ultisnips = true;
-  };
-}
+-- nvim-cmp
+local cmp = require('cmp')
+cmp.setup({
+  mapping = {
+    ['<C-p>'] = cmp.mapping.select_prev_item(),
+    ['<C-n>'] = cmp.mapping.select_next_item(),
+    ['<C-u>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-d>'] = cmp.mapping.scroll_docs(4),
+    ['<C-e>'] = cmp.mapping.close(),
+    ['<CR>'] = cmp.mapping.confirm({
+      behavior = cmp.ConfirmBehavior.Insert,
+      select = true,
+    })
+  },
+  sources = {
+    { name = 'nvim_lsp' },
+    { name = 'path' },
+    { name = 'buffer' },
+    { name = 'nvim_lsp_signature_help' },
+  },
+})
