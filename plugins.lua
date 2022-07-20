@@ -6,6 +6,14 @@ vim.g.neon_transparent = false
 
 vim.cmd[[colorscheme neon]]
 
+-- null-ls
+require("null-ls").setup({
+    sources = {
+        require("null-ls").builtins.formatting.stylua,
+        require('null-ls').builtins.diagnostics.flake8
+    },
+})
+
 -- Marks
 require'marks'.setup {
     default_mappings=false

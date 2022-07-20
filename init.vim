@@ -72,6 +72,8 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'neovim/nvim-lspconfig'
 Plug 'ray-x/lsp_signature.nvim'
 
+Plug 'jose-elias-alvarez/null-ls.nvim'
+
 " Missing stuff
 " - inlay hints. This was done with lsp extensions but its deprecated
 " - kosayoda/lightbulb for code actions
