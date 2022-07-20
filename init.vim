@@ -210,16 +210,6 @@ tnoremap <silent> <F3> <C-\><C-N>:FloatermToggle<CR>
 " Escape terminal key with ESC
 :tnoremap <Esc> <C-\><C-n>
 
-" -------------
-"  Colorscheme
-" -------------
-"if $TERM == "screen-256color"
-    "colorscheme tokyonight
-"else
-    "" Fallback for terminals supporting less colors.
-    "colorscheme dracula
-"endif
-
 " -------------------
 "  LSP Configuration
 " -------------------
@@ -353,6 +343,7 @@ nmap <CR> <Plug>(LoupeClearHighlight)
 nmap ]x ctrih]h<CR><CR>
 
 let g:rooter_manual_only = 1
+
 
 " ------------
 "  Lua config
