@@ -60,7 +60,7 @@ require'lspconfig'.pyright.setup{
     settings = {
         python = {
             analysis = {
-                typeCheckingMode = "basic",
+                typeCheckingMode = "off",
             },
         }
     },
@@ -114,6 +114,48 @@ iron.setup {
 }
 
 -- nvim-cmp
+vim.api.nvim_set_hl(0, "CmpItemAbbrMatch",      {fg="#569cd6",  ctermfg=74,  })
+vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", {fg="#569cd6",  ctermfg=74,  })
+
+vim.api.nvim_set_hl(0, "CmpItemKindVariable",   {fg="#9cdcfe",  ctermfg=158, })
+vim.api.nvim_set_hl(0, "CmpItemKindInterface",  {fg="#9cdcfe",  ctermfg=134, })
+vim.api.nvim_set_hl(0, "CmpItemKindText",       {fg="#9cdcfe",  ctermfg=187, })
+
+vim.api.nvim_set_hl(0, "CmpItemKindFunction",   {fg="#c586c0",  ctermfg=38,  })
+vim.api.nvim_set_hl(0, "CmpItemKindMethod",     {fg="#c586c0",  ctermfg=39,  })
+
+vim.api.nvim_set_hl(0, "CmpItemKindKeyword",    {fg="#d4d4d4",  ctermfg=38,  })
+vim.api.nvim_set_hl(0, "CmpItemKindProperty",   {fg="#d4d4d4",  ctermfg=38,  })
+vim.api.nvim_set_hl(0, "CmpItemKindUnit",       {fg="#d4d4d4",  ctermfg=38,  })
+
+local kind_icons = {
+  Text = "",
+  Method = "",
+  Function = "",
+  Constructor = "",
+  Field = "",
+  Variable = "",
+  Class = "ﴯ",
+  Interface = "",
+  Module = "",
+  Property ="",
+  Unit = "",
+  Value = "",
+  Enum = "",
+  Keyword = "",
+  Snippet = "",
+  Color = "",
+  File = "",
+  Reference = "",
+  Folder = "",
+  EnumMember = "",
+  Constant = "",
+  Struct = "",
+  Event = "",
+  Operator = "",
+  TypeParameter = ""
+}
+
 local cmp = require('cmp')
 cmp.setup({
   mapping = {
@@ -132,5 +174,18 @@ cmp.setup({
     { name = 'path' },
     { name = 'buffer' },
     { name = 'nvim_lsp_signature_help' },
+  },
+  formatting = {
+    format = function(entry, vim_item)
+      -- Kind icons
+      vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
+      -- Source
+      vim_item.menu = ({
+        buffer = "[TXT]",
+        nvim_lsp = "[LSP]",
+        latex_symbols = "[LaTeX]",
+      })[entry.source.name]
+      return vim_item
+    end
   },
 })
