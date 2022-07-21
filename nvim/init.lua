@@ -4,6 +4,7 @@
 -- - ripgrep (https://github.com/BurntSushi/ripgrep)
 -- - fd (https://github.com/sharkdp/fd)
 
+-- packer
 require "plugins"
 
 -- Plugin specific configurations
@@ -14,8 +15,13 @@ require "plugins/configs/lsp"
 require "plugins/configs/misc" -- too small configs to warrant there own file
 vim.cmd('source ~/.config/nvim/lua/plugins/configs/wilder.vim')
 
+-- Keymaps and editor options
 require "settings/keymap"
 require "settings/options"
+
+-- Colorscheme: neon / tokyonight / catppuccin
+local colorscheme = "tokyonight"
+require ("colors/"..colorscheme)
 
 local g = vim.g
 local api = vim.api
@@ -26,15 +32,6 @@ local api = vim.api
 local HOME = vim.env.HOME
 g.python3_host_prog = HOME .. '/.pyenv/versions/neovim3/bin/python'
 g.python_host_prog  = HOME .. '/.pyenv/versions/neovim/bin/python'
-
------------------
--- Colorscheme --
------------------
-g.neon_style = "default"
-g.neon_italic_keyword = true
-g.neon_italic_function = true
-g.neon_transparent = false
-api.nvim_command('colorscheme neon')
 
 ----------
 -- Misc --

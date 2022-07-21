@@ -67,6 +67,7 @@ packer.startup(function(use)
    -- Colorschemes
    use 'rafamadriz/neon'
    use 'folke/tokyonight.nvim'
+   use { "catppuccin/nvim", as = "catppuccin" }
 
   if Packer_Bootstrap then
     require('packer').sync()
