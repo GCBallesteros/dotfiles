@@ -21,7 +21,6 @@ opt.hidden = true            -- don't lose info when unloading buffers
 opt.signcolumn = 'auto:2-5'  -- show sign column always
 
 vim.wo.wrap = false    -- don't wrap lines
-opt.linebreak = true
 
 opt.laststatus = 2    -- 2: the last window will always have a status line
 
@@ -38,7 +37,7 @@ vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
 opt.foldcolumn="1"
 opt.foldnestmax=2
 
--- Completion Options
+-- Completion menu
 -- Disable scratpad. We just need the floating window
 --opt.completeopt+=preview
 vim.o.completeopt="menuone,noselect"

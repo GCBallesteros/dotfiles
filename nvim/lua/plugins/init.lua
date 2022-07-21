@@ -38,7 +38,6 @@ packer.startup(function(use)
    use 'hrsh7th/cmp-nvim-lsp-signature-help'
    use 'nvim-telescope/telescope.nvim'    -- finder, requires fzf and ripgrep
    use 'nvim-telescope/telescope-fzy-native.nvim'
-   use 'rafamadriz/neon'                  -- colorscheme
    use 'voldikss/vim-floaterm'            -- Simple floatterm
    use 'tpope/vim-vinegar'                -- Netrw enhancements
    use 'mhinz/vim-startify'               -- Spalsh screen
@@ -65,6 +64,9 @@ packer.startup(function(use)
    use 'python/black'                     -- Black formatter
    use 'Chiel92/vim-autoformat'           -- Autoformatting
    use 'gelguy/wilder.nvim'               -- Wild menu!
+   -- Colorschemes
+   use 'rafamadriz/neon'
+   use 'folke/tokyonight.nvim'
 
   if Packer_Bootstrap then
     require('packer').sync()
