@@ -1,20 +1,22 @@
--- Highlight Hydrogen jupyter cell delimiter
-vim.cmd('highlight HYDROGEN guifg=#CCCCCC guibg=#CCCCCC')
+local hi = function(name, opts) vim.api.nvim_set_hl(0, name, opts) end
 
--- Highlight group for nvim-window marker
-vim.cmd('highlight NVIMWINDOW guifg=#000000 guibg=#f2de91')
+-- Highlight Hydrogen jupyter cell delimiter
+hi("HYDROGEN", {fg="#000000", bg="#DDDDDD"})
+
+-- Highlight group for nvim-window markeg
+hi('NVIMWINDOW', {fg='#000000', bg='#f2de91'})
 
 -- Highlight groups for cmp
-vim.cmd('highlight! CmpItemAbbrMatch      guifg=#569cd6 guibg=NONE')
-vim.cmd('highlight! CmpItemAbbrMatchFuzzy guifg=#569cd6 guibg=NONE')
+hi("CmpItemAbbrMatch",      {fg='#569cd6', ctermfg=74})
+hi("CmpItemAbbrMatchFuzzy", {fg='#569cd6', ctermfg=74})
 
-vim.cmd('highlight! CmpItemKindVariable   guifg=#9cdcfe guibg=NONE')
-vim.cmd('highlight! CmpItemKindInterface  guifg=#9cdcfe guibg=NONE')
-vim.cmd('highlight! CmpItemKindText       guifg=#9cdcfe guibg=NONE')
+hi("CmpItemKindVariable",   {fg='#9cdcfe', ctermfg=158})
+hi("CmpItemKindInterface",  {fg='#9cdcfe', ctermfg=134})
+hi("CmpItemKindText",       {fg='#9cdcfe', ctermfg=187})
 
-vim.cmd('highlight! CmpItemKindFunction   guifg=#c586c0 guibg=NONE')
-vim.cmd('highlight! CmpItemKindMethod     guifg=#c586c0 guibg=NONE')
- 
-vim.cmd('highlight! CmpItemKindKeyword    guifg=#d4d4d4 guibg=NONE')
-vim.cmd('highlight! CmpItemKindProperty   guifg=#d4d4d4 guibg=NONE')
-vim.cmd('highlight! CmpItemKindUnit       guifg=#d4d4d4 guibg=NONE')
+hi("CmpItemKindFunction",   {fg='#c586c0', ctermfg=38})
+hi("CmpItemKindMethod",     {fg='#c586c0', ctermfg=39})
+
+hi("CmpItemKindKeyword",    {fg='#d4d4d4', ctermfg=38})
+hi("CmpItemKindProperty",   {fg='#d4d4d4', ctermfg=38})
+hi("CmpItemKindUnit",       {fg='#d4d4d4', ctermfg=38})

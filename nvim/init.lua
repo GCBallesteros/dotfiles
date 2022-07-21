@@ -1,15 +1,15 @@
 require "plugins"
 
+-- Plugin specific configurations
 require "plugins/configs/startify"
 require "plugins/configs/lualine"
 require "plugins/configs/cmp"
 require "plugins/configs/lsp"
-require "plugins/configs/misc"
+require "plugins/configs/misc" -- too small configs to warrant there own file
+vim.cmd('source ~/.config/nvim/lua/plugins/configs/wilder.vim')
 
 require "settings/keymap"
 require "settings/options"
-
-vim.cmd('source ~/.config/nvim/lua/plugins/configs/wilder.vim')
 
 local g = vim.g
 local api = vim.api
@@ -28,7 +28,6 @@ g.neon_style = "default"
 g.neon_italic_keyword = true
 g.neon_italic_function = true
 g.neon_transparent = false
-
 api.nvim_command('colorscheme neon')
 
 ----------
@@ -40,18 +39,18 @@ api.nvim_create_autocmd("BufEnter", {command = [[set formatoptions-=cro]]})
 -- Hydrogen cell syntax highlight
 api.nvim_create_autocmd(
   {"BufEnter", "BufRead", "BufNewFile"},
-  { pattern = "*.py", command = [[syn match HYDROGEN /^\s*# %%.*$/]] }
+  {pattern = "*.py", command = [[syn match HYDROGEN /^\s*# %%.*$/]]}
 )
 
 -- Toggle relative numbering when into normal mode
-local numbertoggle = api.nvim_create_augroup("numbertoggle", { clear = true })
+local numbertoggle = api.nvim_create_augroup("numbertoggle", {clear = true})
 api.nvim_create_autocmd(
   {"BufEnter", "FocusGained", "InsertLeave"},
-  { pattern = "*", command = "set relativenumber", group = numbertoggle }
+  {pattern = "*", command = "set relativenumber", group = numbertoggle}
 )
 api.nvim_create_autocmd(
   {"BufLeave", "FocusLost", "InsertEnter"},
-  { pattern = "*", command = "set norelativenumber", group = numbertoggle }
+  {pattern = "*", command = "set norelativenumber", group = numbertoggle}
 )
 
 -- Yanking from clipboard on windows
@@ -63,8 +62,6 @@ api.nvim_create_autocmd(
     --augroup END
 --endif
 
-
-
--- Highlights need to be called last to work
+-- Highlights need to be called last to work?
 require "settings/highlights"
 
