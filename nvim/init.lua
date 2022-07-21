@@ -1,3 +1,9 @@
+-- # Preamble
+-- In order for this config to work correctly you need the following installed:
+-- - fzy-lua-native (https://github.com/romgrk/fzy-lua-native)
+-- - ripgrep (https://github.com/BurntSushi/ripgrep)
+-- - fd (https://github.com/sharkdp/fd)
+
 require "plugins"
 
 -- Plugin specific configurations

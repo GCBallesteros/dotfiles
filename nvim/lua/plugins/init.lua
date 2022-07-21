@@ -10,7 +10,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
    vim.cmd [[packadd packer.nvim]]
 end
 
--- Autocommand to reload neovim when you save plugins.lua
+-- Autocommand to reload neovim when you save this file
 vim.cmd [[
    augroup packer_user_config
       autocmd!
@@ -26,7 +26,7 @@ if not present then
 end
 
 packer.startup(function(use)
-   use 'wbthomason/packer.nvim'           -- packer manages itself 
+   use 'wbthomason/packer.nvim'           -- packer manages itself
    use 'nvim-lua/plenary.nvim'            -- avoids callbacks, used by other plugins
    use 'nvim-lua/popup.nvim'              -- popup for other plugins
    use 'nvim-treesitter/nvim-treesitter'  -- language parsing completion engine
@@ -37,7 +37,8 @@ packer.startup(function(use)
    use 'hrsh7th/cmp-path'
    use 'hrsh7th/cmp-nvim-lsp-signature-help'
    use 'nvim-telescope/telescope.nvim'    -- finder, requires fzf and ripgrep
-   use 'rafamadriz/neon'
+   use 'nvim-telescope/telescope-fzy-native.nvim'
+   use 'rafamadriz/neon'                  -- colorscheme
    use 'voldikss/vim-floaterm'            -- Simple floatterm
    use 'tpope/vim-vinegar'                -- Netrw enhancements
    use 'mhinz/vim-startify'               -- Spalsh screen
