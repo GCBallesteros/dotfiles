@@ -96,3 +96,9 @@ vim.api.nvim_create_autocmd(
 g.autoformat_autoindent = 0
 g.autoformat_retab = 0
 g.autoformat_remove_trailing_spaces = 1
+
+
+-------------------
+-- Nerdcommenter --
+-------------------
+g.NERDCreateDefaultMappings = 1

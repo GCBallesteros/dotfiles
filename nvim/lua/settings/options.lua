@@ -37,6 +37,8 @@ vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
 opt.foldcolumn="1"
 opt.foldnestmax=2
 
+opt.timeoutlen=300
+
 -- Completion menu
 -- Disable scratpad. We just need the floating window
 --opt.completeopt+=preview

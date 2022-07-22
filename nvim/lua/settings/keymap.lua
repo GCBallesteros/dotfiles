@@ -56,6 +56,12 @@ keymap("n", "<C-w>w", "<cmd>lua require('nvim-window').pick()<CR>", opts)
 keymap("n", "]x", "ctrih]h<CR><CR>", {noremap=false, silent=true})
 
 
+-------------------
+-- Nerdcommenter --
+-------------------
+keymap("v", "<leader>c<space> ", "<cmd>NERDCommenterToggle<CR>", opts)
+keymap("n", "<leader>c<space> ", "<cmd>NERDCommenterToggle<CR>", opts)
+
 ----------
 -- Misc --
 ----------
