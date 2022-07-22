@@ -89,7 +89,6 @@ require("null-ls").setup({
 --------------
 g.jupytext_fmt = "py:hydrogen"
 
-
 -------------------
 -- Nerdcommenter --
 -------------------
