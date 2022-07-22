@@ -12,7 +12,10 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
-local navic = require "nvim-navic"
+local navic_attach = function(client, bufnr)
+  require("nvim-navic").attach(client, bufnr)
+end
+
 local lspconfig = require "lspconfig"
 
 -- Python
@@ -25,11 +28,8 @@ lspconfig.pyright.setup({
     },
   },
   capabilities = capabilities,
-  on_attach = function(client, bufnr)
-    navic.attach(client, bufnr)
-  end,
+  on_attach = navic_attach,
 })
-
 
 -- Rust
 lspconfig.rust_analyzer.setup({
@@ -47,15 +47,10 @@ lspconfig.rust_analyzer.setup({
     },
   },
   capabilities = capabilities,
-  on_attach = function(client, bufnr)
-    navic.attach(client, bufnr)
-  end,
+  on_attach = navic_attach,
 })
-
 
 -- Lua
 require("lspconfig").sumneko_lua.setup({
-  on_attach = function(client, bufnr)
-    navic.attach(client, bufnr)
-  end,
+  on_attach = navic_attach,
 })
