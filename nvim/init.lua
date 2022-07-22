@@ -12,6 +12,7 @@ require "plugins/configs/startify"
 require "plugins/configs/lualine"
 require "plugins/configs/cmp"
 require "plugins/configs/lsp"
+require "plugins/configs/formatter"
 require "plugins/configs/misc" -- too small configs to warrant there own file
 vim.cmd "source ~/.config/nvim/lua/plugins/configs/wilder.vim"
 
