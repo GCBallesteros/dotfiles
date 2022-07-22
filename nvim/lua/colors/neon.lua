@@ -4,8 +4,5 @@ g.neon_style = "default"
 g.neon_italic_keyword = true
 g.neon_italic_function = true
 g.neon_transparent = false
-vim.api.nvim_command "colorscheme neon"
 
-require("lualine").setup({
-  options = { theme = "neon" },
-})
+vim.api.nvim_command "colorscheme neon"

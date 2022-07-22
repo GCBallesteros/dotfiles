@@ -20,8 +20,8 @@ vim.cmd "source ~/.config/nvim/lua/plugins/configs/wilder.vim"
 require "settings/keymap"
 require "settings/options"
 
--- Colorscheme: neon / tokyonight / catppuccin
-local colorscheme = "tokyonight"
+-- Colorscheme: neon / tokyonight / catppuccin / material
+local colorscheme = "material"
 require("colors/" .. colorscheme)
 
 local g = vim.g

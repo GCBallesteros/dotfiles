@@ -70,6 +70,7 @@ packer.startup(function(use)
   use "rafamadriz/neon"
   use "folke/tokyonight.nvim"
   use({ "catppuccin/nvim", as = "catppuccin" })
+  use 'marko-cerovac/material.nvim'
 
   if Packer_Bootstrap then
     require("packer").sync()

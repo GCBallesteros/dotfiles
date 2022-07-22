@@ -24,4 +24,5 @@ lualine.setup({
     lualine_y = { "diff" },
     lualine_z = { "branch" },
   },
+  theme = "auto",
 })

@@ -17,8 +17,4 @@ require("catppuccin").setup({
   },
 })
 
-require("lualine").setup({
-  options = { theme = "solarized_light" },
-})
-
 vim.api.nvim_command "colorscheme catppuccin"
