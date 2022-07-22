@@ -52,5 +52,22 @@ lspconfig.rust_analyzer.setup({
 
 -- Lua
 require("lspconfig").sumneko_lua.setup({
+  settings = {
+    Lua = {
+      completion = {
+        keywordSnippet = "Disable",
+      },
+      diagnostics = {
+        globals = { "vim", "use" },
+        disable = { "lowercase-global" },
+      },
+      workspace = {
+        library = {
+          [vim.fn.expand "$VIMRUNTIME/lua"] = true,
+          [vim.fn.expand "$VIMRUNTIME/lua/vim/lsp"] = true,
+        },
+      },
+    },
+  },
   on_attach = navic_attach,
 })
