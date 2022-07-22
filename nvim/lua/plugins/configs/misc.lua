@@ -93,3 +93,38 @@ g.jupytext_fmt = "py:hydrogen"
 -- Nerdcommenter --
 -------------------
 g.NERDCreateDefaultMappings = 1
+
+-----------
+-- Navic --
+-----------
+-- VSCode Symbols
+require("nvim-navic").setup({
+  icons = {
+    File = " ",
+    Module = " ",
+    Namespace = " ",
+    Package = " ",
+    Class = "ﴯ ",
+    Method = " ",
+    Property = " ",
+    Field = " ",
+    Constructor = " ",
+    Enum = " ",
+    Interface = " ",
+    Function = " ",
+    Variable = " ",
+    Constant = " ",
+    String = "ﮜ ",
+    Number = " ",
+    Array = " ",
+    Boolean = " ",
+    Object = " ",
+    Key = " ",
+    Null = "ﳠ ",
+    EnumMember = " ",
+    Struct = " ",
+    Event = " ",
+    Operator = " ",
+    TypeParameter = " ",
+  },
+})
