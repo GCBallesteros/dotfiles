@@ -56,7 +56,7 @@ g.rooter_manual_only = 1
 ---------------
 -- Iron.nvim --
 ---------------
-iron = require "iron.core"
+local iron = require "iron.core"
 iron.setup({
   config = {
     should_map_plug = false,
