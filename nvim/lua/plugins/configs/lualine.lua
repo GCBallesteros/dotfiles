@@ -15,16 +15,13 @@ lualine.setup({
     lualine_x = { "encoding", "fileformat", "filetype" },
   },
   tabline = {
-    lualine_a = {
-      "branch",
-      "diff",
-    },
-    lualine_b = { { "filename", path = 3 } },
+    lualine_a = {},
+    lualine_b = { { "filename", path = 1 } },
     lualine_c = {
       { navic.get_location, cond = navic.is_available },
     },
     lualine_x = {},
-    lualine_y = {},
-    lualine_z = {},
+    lualine_y = { "diff" },
+    lualine_z = { "branch" },
   },
 })
