@@ -9,13 +9,13 @@ for _, sign in ipairs(signs) do
   vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
 end
 
--- Python LSP Configuration
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
 local navic = require "nvim-navic"
 local lspconfig = require "lspconfig"
 
+-- Python
 lspconfig.pyright.setup({
   settings = {
     python = {
@@ -30,7 +30,8 @@ lspconfig.pyright.setup({
   end,
 })
 
--- Rust LSP Configuration
+
+-- Rust
 lspconfig.rust_analyzer.setup({
   settings = {
     ["rust-analyzer"] = {
@@ -46,6 +47,14 @@ lspconfig.rust_analyzer.setup({
     },
   },
   capabilities = capabilities,
+  on_attach = function(client, bufnr)
+    navic.attach(client, bufnr)
+  end,
+})
+
+
+-- Lua
+require("lspconfig").sumneko_lua.setup({
   on_attach = function(client, bufnr)
     navic.attach(client, bufnr)
   end,
