@@ -1,9 +1,9 @@
 local g = vim.g
 
-vim.api.nvim_command('colorscheme tokyonight')
+vim.api.nvim_command "colorscheme tokyonight"
 
-require('lualine').setup {
+require("lualine").setup({
   options = {
-    theme = 'tokyonight'
-  }
-}
+    theme = "tokyonight",
+  },
+})

@@ -13,7 +13,7 @@ require "plugins/configs/lualine"
 require "plugins/configs/cmp"
 require "plugins/configs/lsp"
 require "plugins/configs/misc" -- too small configs to warrant there own file
-vim.cmd('source ~/.config/nvim/lua/plugins/configs/wilder.vim')
+vim.cmd "source ~/.config/nvim/lua/plugins/configs/wilder.vim"
 
 -- Keymaps and editor options
 require "settings/keymap"
@@ -21,7 +21,7 @@ require "settings/options"
 
 -- Colorscheme: neon / tokyonight / catppuccin
 local colorscheme = "tokyonight"
-require ("colors/"..colorscheme)
+require("colors/" .. colorscheme)
 
 local g = vim.g
 local api = vim.api
@@ -30,41 +30,40 @@ local api = vim.api
 -- Python --
 ------------
 local HOME = vim.env.HOME
-g.python3_host_prog = HOME .. '/.pyenv/versions/neovim3/bin/python'
-g.python_host_prog  = HOME .. '/.pyenv/versions/neovim/bin/python'
+g.python3_host_prog = HOME .. "/.pyenv/versions/neovim3/bin/python"
+g.python_host_prog = HOME .. "/.pyenv/versions/neovim/bin/python"
 
 ----------
 -- Misc --
 ----------
 -- Disable autocommenting
-api.nvim_create_autocmd("BufEnter", {command = [[set formatoptions-=cro]]})
+api.nvim_create_autocmd("BufEnter", { command = [[set formatoptions-=cro]] })
 
 -- Hydrogen cell syntax highlight
 api.nvim_create_autocmd(
-  {"BufEnter", "BufRead", "BufNewFile"},
-  {pattern = "*.py", command = [[syn match HYDROGEN /^\s*# %%.*$/]]}
+  { "BufEnter", "BufRead", "BufNewFile" },
+  { pattern = "*.py", command = [[syn match HYDROGEN /^\s*# %%.*$/]] }
 )
 
 -- Toggle relative numbering when into normal mode
-local numbertoggle = api.nvim_create_augroup("numbertoggle", {clear = true})
+local numbertoggle = api.nvim_create_augroup("numbertoggle", { clear = true })
 api.nvim_create_autocmd(
-  {"BufEnter", "FocusGained", "InsertLeave"},
-  {pattern = "*", command = "set relativenumber", group = numbertoggle}
+  { "BufEnter", "FocusGained", "InsertLeave" },
+  { pattern = "*", command = "set relativenumber", group = numbertoggle }
 )
 api.nvim_create_autocmd(
-  {"BufLeave", "FocusLost", "InsertEnter"},
-  {pattern = "*", command = "set norelativenumber", group = numbertoggle}
+  { "BufLeave", "FocusLost", "InsertEnter" },
+  { pattern = "*", command = "set norelativenumber", group = numbertoggle }
 )
 
 -- Yanking from clipboard on windows
 --let s:clip = '/mnt/c/Windows/System32/clip.exe'  " change this path according to your mount point
 --if executable(s:clip)
-    --augroup WSLYank
-        --autocmd!
-        --autocmd TextYankPost * if v:event.operator ==# 'y' | call system(s:clip, @0) | endif
-    --augroup END
+--augroup WSLYank
+--autocmd!
+--autocmd TextYankPost * if v:event.operator ==# 'y' | call system(s:clip, @0) | endif
+--augroup END
 --endif
 
 -- Highlights need to be called last to work?
 require "settings/highlights"
-
