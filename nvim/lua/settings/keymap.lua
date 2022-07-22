@@ -47,9 +47,9 @@ keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
 -----------------
 keymap("n", "<C-w>w", "<cmd>lua require('nvim-window').pick()<CR>", opts)
 
--------------
--- Jupyter --
--------------
+----------
+-- Iron --
+----------
 keymap("n", "]x", "ctrih]h<CR><CR>", { noremap = false, silent = true })
 
 -------------------
@@ -57,6 +57,11 @@ keymap("n", "]x", "ctrih]h<CR><CR>", { noremap = false, silent = true })
 -------------------
 keymap("v", "<leader>c<space> ", "<cmd>NERDCommenterToggle<CR>", opts)
 keymap("n", "<leader>c<space> ", "<cmd>NERDCommenterToggle<CR>", opts)
+
+--------------------
+-- Formatter.nvim --
+--------------------
+keymap("n", "<leader>f", "<cmd>Format<CR>", opts)
 
 ----------
 -- Misc --
