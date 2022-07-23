@@ -23,4 +23,3 @@ require "settings/highlights" -- needs to be called last
 ------------
 local HOME = vim.env.HOME
 vim.g.python3_host_prog = HOME .. "/.pyenv/versions/neovim3/bin/python"
-vim.g.python_host_prog = HOME .. "/.pyenv/versions/neovim/bin/python"
