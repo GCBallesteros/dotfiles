@@ -1,6 +1,6 @@
 return {
   -- Colorscheme: neon / tokyonight / catppuccin / material
-  colorscheme = "neon",
+  colorscheme = "catppuccin",
   python3_host = "~/.pyenv/versions/neovim3/bin",
   startify_repos = {
     {

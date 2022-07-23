@@ -36,3 +36,12 @@ vim.cmd [[
       autocmd BufWritePost */lua/plugin_list.lua source <afile> | PackerSync
    augroup end
 ]]
+
+-- https://jdhao.github.io/2020/09/22/highlight_groups_cleared_in_nvim/
+-- We need to apply the highlight after the colorscheme has been applied
+-- because many of them have a tendency to clear custom highlights.
+local custom_highlights = vim.api.nvim_create_augroup("custom_highlights", { clear = true })
+vim.api.nvim_create_autocmd(
+  "ColorScheme",
+  { pattern = "*", callback = require("settings/highlights").do_custom_hi, group = custom_highlights }
+)
