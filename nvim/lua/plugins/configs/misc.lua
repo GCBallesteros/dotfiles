@@ -17,10 +17,10 @@ require("telescope").load_extension "fzy_native"
 -- Treesitter --
 ----------------
 require("nvim-treesitter.configs").setup({
-  ensure_installed = { "python", "rust", "julia", "lua" },
+  ensure_installed = { "python", "rust", "julia", "lua", "c" },
   highlight = {
     enable = true, -- false will disable the whole extension
-    disable = { "c" }, -- list of language that will be disabled
+    disable = {}, -- list of language that will be disabled
   },
 })
 
