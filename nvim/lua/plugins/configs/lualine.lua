@@ -2,7 +2,7 @@ local navic = require "nvim-navic"
 local lualine = require "lualine"
 
 lualine.setup({
-  options = { theme = "neon" }, -- overriden by the colorscheme selection
+  options = { theme = "auto" },
   sections = {
     lualine_a = { "mode" },
     lualine_b = {
@@ -24,5 +24,4 @@ lualine.setup({
     lualine_y = { "diff" },
     lualine_z = { "branch" },
   },
-  theme = "auto",
 })
