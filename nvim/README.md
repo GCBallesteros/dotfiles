@@ -4,8 +4,16 @@
 - [fzy-lua-native](https://github.com/romgrk/fzy-lua-native)
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
 - [fd](https://github.com/sharkdp/fd)
+
+For language specific support you will need the following:
+### Python
 - [black](https://github.com/psf/black)
+- [pyright](https://github.com/microsoft/pyright)
+### Lua
+- [sumneko-lua](https://github.com/sumneko/lua-language-server)
 - [stylua](https://github.com/JohnnyMorganz/StyLua)
+### Rust
+- [rust tool chain](https://www.rust-lang.org/tools/install)
 
 ## Setting up
 1. Install all __additional dependencies__ and have them on your path except
@@ -58,3 +66,6 @@ config file on `lua/colors`. At its simplest its contents are just:
 ```lua
 vim.api.nvim_command "colorscheme colorscheme_name"
 ```
+
+## ToDo
+- Grab and adapt the install scripts from LunarVim
