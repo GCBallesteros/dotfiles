@@ -31,7 +31,7 @@ api.nvim_create_autocmd(
 
 -- PackerSync when we save the plugin list
 local resync_plugins = function()
-  require "plugins/init"
+  require "plugins"
   require("packer").sync()
 end
 api.nvim_create_autocmd("BufWritePost", { pattern = "*/lua/plugin_list.lua", callback = resync_plugins })
