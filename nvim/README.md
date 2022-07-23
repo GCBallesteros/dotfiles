@@ -25,8 +25,7 @@ modified.
 ![folder structure](file_tree.png)
 
 `lua/plugins/init.lua` starts packer and loads all external plugins  and
-their configurations, if you want to add a new plugin you will have to it
-here. Plugin configurations are all in the `lua/plugins/configs` folder.
+their configurations.  Plugin configurations are all in the `lua/plugins/configs` folder.
 More complex plugins have their own config files, but there is also a
 `misc.lua` that contains the configuration for all of those plugins that
 have more trivial configs or I'm testing out and don't feel like making a
@@ -40,6 +39,13 @@ In `lua/settings` we have the configuration for:
 
 Finally, `lua/colors/` contains the configuration for the colorschemes that
 you have installed.
+
+## Adding plugins
+New plugins are to be added on `lua/plugin_list.lua`. Each element of the
+`plugin` table will be passed to a packer `use` statement. As discussed
+above configurations for plugins can be either put into a separate folder in
+the `lua/plugins/configs` folder or you can just extend the `misc.lua` file
+also on that folder.
 
 ## Adding a colorscheme
 The colorscheme field on the `lua/config.lua` file is actually interpolated
