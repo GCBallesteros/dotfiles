@@ -1,9 +1,6 @@
 local g = vim.g
 
-g.startify_bookmarks = {
-  "~/.config/nvim/",
-  "~/.zshrc",
-}
+g.startify_bookmarks = require("config").startify_bookmarks
 g.startify_relative_path = 1
 g.startify_change_to_vcs_root = 1
 g.startify_use_env = 1
@@ -11,15 +8,9 @@ g.startify_session_persistence = 1
 g.startify_padding_left = 10
 g.startify_files_number = 5
 g.startify_custom_indices = { "a", "s", "d", "f", "j", "k", "l", "g", "h", "m", "v" }
-g.my_repos = {
-  {
-    line = "TTTR Toolbox",
-    path = "~/Documents/RandomProjects/tttr-toolbox/tttr-toolbox/src/main.rs",
-  },
-}
 
 function list_repos()
-  return g.my_repos
+  return require("config").startify_repos
 end
 
 g.startify_lists = {

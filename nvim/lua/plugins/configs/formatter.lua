@@ -2,7 +2,13 @@ require("formatter").setup({
   log_level = vim.log.levels.WARN,
   filetype = {
     python = {
-      require("formatter.filetypes.python").black,
+      function()
+        return {
+          exe = require("config").python3_host .. "/black",
+          args = { "-q", "-" },
+          stdin = true,
+        }
+      end,
     },
     lua = {
       function()
