@@ -28,3 +28,11 @@ api.nvim_create_autocmd(
 --autocmd TextYankPost * if v:event.operator ==# 'y' | call system(s:clip, @0) | endif
 --augroup END
 --endif
+
+-- Autocommand to reload neovim when you save this file
+vim.cmd [[
+   augroup packer_user_config
+      autocmd!
+      autocmd BufWritePost */lua/plugin_list.lua source <afile> | PackerSync
+   augroup end
+]]
