@@ -36,7 +36,6 @@ return {
     "GCBallesteros/vim-textobj-hydrogen", -- Jump cells of hydrogen
     "GCBallesteros/jupytext.vim", -- Open jupyter notebooks
     "jose-elias-alvarez/null-ls.nvim", -- For extra linting
-    "mhartington/formatter.nvim",
     "gelguy/wilder.nvim", -- Wild menu!
     -- Colorschemes
     "rafamadriz/neon",

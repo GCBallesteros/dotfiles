@@ -58,10 +58,10 @@ keymap("n", "]x", "ctrih]h<CR><CR>", { noremap = false, silent = true })
 keymap("v", "<leader>c<space> ", "<cmd>NERDCommenterToggle<CR>", opts)
 keymap("n", "<leader>c<space> ", "<cmd>NERDCommenterToggle<CR>", opts)
 
---------------------
--- Formatter.nvim --
---------------------
-keymap("n", "<leader>f", "<cmd>Format<CR>", opts)
+-------------
+-- null-ls --
+-------------
+keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting_sync()<CR>", opts)
 
 ----------
 -- Misc --
