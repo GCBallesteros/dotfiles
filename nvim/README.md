@@ -13,7 +13,7 @@
 2. Create a python 3 env, activate it and install in it `pynvim` and
    `black`.
 3. Find the path to the env. If you are using `pyenv` it will be something
-   like `~/.pyenv/versions/env_name`. Copy that path into `lua/config.lua`
+   like `~/.pyenv/versions/env_name/bin`. Copy that path into `lua/config.lua`
    without a trailing slash.
 
 ## Computer Specific Config
