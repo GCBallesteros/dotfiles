@@ -70,9 +70,18 @@ packer.startup(function(use)
   use "rafamadriz/neon"
   use "folke/tokyonight.nvim"
   use({ "catppuccin/nvim", as = "catppuccin" })
-  use 'marko-cerovac/material.nvim'
+  use "marko-cerovac/material.nvim"
 
   if Packer_Bootstrap then
     require("packer").sync()
   end
 end)
+
+-- Require all the plugin specific configurations
+local plugin_config_folder = vim.fn.stdpath "config" .. "/lua/plugins/configs"
+for _, file in ipairs(vim.fn.readdir(plugin_config_folder, [[v:val =~ '\.lua$']])) do
+  require("plugins/configs/" .. file:gsub("%.lua$", ""))
+end
+
+-- Wilder is configured in vimscript so it breaks the pattern
+vim.cmd "source ~/.config/nvim/lua/plugins/configs/wilder.vim"
