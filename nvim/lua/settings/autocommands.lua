@@ -29,19 +29,18 @@ api.nvim_create_autocmd(
 --augroup END
 --endif
 
--- Autocommand to reload neovim when you save this file
-vim.cmd [[
-   augroup packer_user_config
-      autocmd!
-      autocmd BufWritePost */lua/plugin_list.lua source <afile> | PackerSync
-   augroup end
-]]
+-- PackerSync when we save the plugin list
+local resync_plugins = function()
+  require "plugins/init"
+  require("packer").sync()
+end
+api.nvim_create_autocmd("BufWritePost", { pattern = "*/lua/plugin_list.lua", callback = resync_plugins })
 
 -- https://jdhao.github.io/2020/09/22/highlight_groups_cleared_in_nvim/
 -- We need to apply the highlight after the colorscheme has been applied
 -- because many of them have a tendency to clear custom highlights.
-local custom_highlights = vim.api.nvim_create_augroup("custom_highlights", { clear = true })
-vim.api.nvim_create_autocmd(
+local custom_highlights = api.nvim_create_augroup("custom_highlights", { clear = true })
+api.nvim_create_autocmd(
   "ColorScheme",
   { pattern = "*", callback = require("settings/highlights").do_custom_hi, group = custom_highlights }
 )
