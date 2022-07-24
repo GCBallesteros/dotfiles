@@ -5,6 +5,9 @@ return {
     "nvim-lua/popup.nvim", -- popup for other plugins
     "nvim-treesitter/nvim-treesitter", -- language parsing completion engine
     "neovim/nvim-lspconfig", -- language server protocol implementation
+    "williamboman/mason.nvim", -- lsp, dap, linter management
+    "williamboman/mason-lspconfig.nvim",
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
     "hrsh7th/nvim-cmp", -- THE vim completion engine
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-buffer",

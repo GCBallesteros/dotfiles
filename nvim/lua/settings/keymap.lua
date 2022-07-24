@@ -38,7 +38,6 @@ keymap("t", "<ESC>", "<C-\\><C-n>", opts)
 -- application. More specificially to when we attach an LSP
 function M.enable_lsp_keymaps()
   keymap("n", "<c-]>", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-  --keyamp("n", "gd", "<cmd>vim.lsp.buf.document_symbol()<CR>")
   keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
   keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
   keymap("n", "ga", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
