@@ -30,7 +30,32 @@ into another computer this should be the only file that needs to be
 modified.
 
 ## Folder Structure
-![folder structure](file_tree.png)
+```
+.
+├── init.lua
+├── lua
+│  ├── colors
+│  │  ├── catppuccin.lua
+│  │  └── ... more colorschemes
+│  ├── commands
+│  │  ├── format_toogle.lua
+│  │  └── init.lua
+│  ├── config.lua
+│  ├── plugin_list.lua
+│  ├── plugins
+│  │  ├── configs
+│  │  │  ├── lsp.lua
+│  │  │  ├── misc.lua
+│  │  │  └── ... more configs
+│  │  └── init.lua
+│  └── settings
+│     ├── autocommands.lua
+│     ├── highlights.lua
+│     ├── init.lua
+│     ├── keymap.lua
+│     └── options.lua
+└── README.md
+```
 
 `lua/plugins/init.lua` starts packer and loads all external plugins  and
 their configurations.  Plugin configurations are all in the `lua/plugins/configs` folder.
