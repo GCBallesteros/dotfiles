@@ -31,7 +31,7 @@ api.nvim_create_autocmd(
 
 -- Update plugins as soon as we save the plugins file
 local resync_plugins = function()
-  vim.cmd("source " .. vim.fn.stdpath("config") .. "/lua/plugins/init.lua")
+  vim.cmd("source " .. vim.fn.stdpath "config" .. "/lua/plugins/init.lua")
   require("packer").sync()
 end
 api.nvim_create_autocmd("BufWritePost", { pattern = "*/lua/plugins/init.lua", callback = resync_plugins })
