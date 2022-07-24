@@ -1,3 +1,4 @@
+local M = {}
 local opts = { noremap = true, silent = true }
 local keymap = vim.api.nvim_set_keymap
 
@@ -33,14 +34,18 @@ keymap("t", "<ESC>", "<C-\\><C-n>", opts)
 ---------
 -- LSP --
 ---------
-keymap("n", "<c-]>", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-keymap("n", "ga", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-keymap("n", "<Leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+-- Wrap keymap definitions on a function so that we can delay their
+-- application. More specificially to when we attach an LSP
+function M.enable_lsp_keymaps()
+  keymap("n", "<c-]>", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+  keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+  keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+  keymap("n", "ga", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+  keymap("n", "<Leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
 
-keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
-keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
+  keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
+  keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
+end
 
 -----------------
 -- nvim-window --
@@ -73,3 +78,5 @@ keymap("n", "<CR>", "<Plug>(LoupeClearHighlight)", { noremap = false, silent = t
 --quickfix movement
 keymap("n", "]q", "<cmd>cn<CR>", opts)
 keymap("n", "[q", "<cmd>cp<CR>", opts)
+
+return M

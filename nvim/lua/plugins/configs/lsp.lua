@@ -28,7 +28,10 @@ lspconfig.pyright.setup({
     },
   },
   capabilities = capabilities,
-  on_attach = navic_attach,
+  on_attach = function(client, bufnr)
+    navic_attach(client, bufnr)
+    require("settings/keymap").enable_lsp_keymaps()
+  end,
 })
 
 -- Rust
@@ -47,7 +50,10 @@ lspconfig.rust_analyzer.setup({
     },
   },
   capabilities = capabilities,
-  on_attach = navic_attach,
+  on_attach = function(client, bufnr)
+    navic_attach(client, bufnr)
+    require("settings/keymap").enable_lsp_keymaps()
+  end,
 })
 
 -- Lua
