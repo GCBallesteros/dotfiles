@@ -41,7 +41,6 @@ modified.
 │  │  ├── format_toogle.lua
 │  │  └── init.lua
 │  ├── config.lua
-│  ├── plugin_list.lua
 │  ├── plugins
 │  │  ├── configs
 │  │  │  ├── lsp.lua
@@ -74,8 +73,8 @@ Finally, `lua/colors/` contains the configuration for the colorschemes that
 you have installed.
 
 ## Adding plugins
-New plugins are to be added on `lua/plugin_list.lua`. Each element of the
-`plugin` table will be passed to a packer `use` statement. As discussed
+New plugins are to be added at the top of `lua/plugins/init.lua`. Each element
+of the `plugin` table will be passed to a packer `use` statement. As discussed
 above configurations for plugins can be either put into a separate folder in
 the `lua/plugins/configs` folder or you can just extend the `misc.lua` file
 also on that folder.

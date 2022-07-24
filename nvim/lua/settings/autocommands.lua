@@ -29,12 +29,12 @@ api.nvim_create_autocmd(
 --augroup END
 --endif
 
--- PackerSync when we save the plugin list
+-- Update plugins as soon as we save the plugins file
 local resync_plugins = function()
-  require "plugins"
+  vim.cmd("source " .. vim.fn.stdpath("config") .. "/lua/plugins/init.lua")
   require("packer").sync()
 end
-api.nvim_create_autocmd("BufWritePost", { pattern = "*/lua/plugin_list.lua", callback = resync_plugins })
+api.nvim_create_autocmd("BufWritePost", { pattern = "*/lua/plugins/init.lua", callback = resync_plugins })
 
 -- https://jdhao.github.io/2020/09/22/highlight_groups_cleared_in_nvim/
 -- We need to apply the highlight after the colorscheme has been applied
