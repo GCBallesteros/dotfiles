@@ -33,27 +33,28 @@ modified.
 ```
 .
 ├── init.lua
-├── lua
-│  ├── colors
-│  │  ├── catppuccin.lua
-│  │  └── ... more colorschemes
-│  ├── commands
-│  │  ├── format_toogle.lua
-│  │  └── init.lua
-│  ├── config.lua
-│  ├── plugins
-│  │  ├── configs
-│  │  │  ├── lsp.lua
-│  │  │  ├── misc.lua
-│  │  │  └── ... more configs
-│  │  └── init.lua
-│  └── settings
-│     ├── autocommands.lua
-│     ├── highlights.lua
-│     ├── init.lua
-│     ├── keymap.lua
-│     └── options.lua
-└── README.md
+├── README.md
+└── lua
+   ├── config.lua
+   ├── plugin_list.lua
+   ├── colors
+   │  ├── catppuccin.lua
+   │  └── ... more colorschemes
+   ├── commands
+   │  ├── format_toogle.lua
+   │  └── init.lua
+   ├── plugins
+   │  ├── configs
+   │  │  ├── lsp.lua
+   │  │  ├── misc.lua
+   │  │  └── ... more configs
+   │  └── init.lua
+   └── settings
+      ├── init.lua
+      ├── autocommands.lua
+      ├── highlights.lua
+      ├── keymap.lua
+      └── options.lua
 ```
 
 `lua/plugins/init.lua` starts packer and loads all external plugins  and
@@ -73,11 +74,11 @@ Finally, `lua/colors/` contains the configuration for the colorschemes that
 you have installed.
 
 ## Adding plugins
-New plugins are to be added at the top of `lua/plugins/init.lua`. Each element
-of the `plugin` table will be passed to a packer `use` statement. As discussed
-above configurations for plugins can be either put into a separate folder in
-the `lua/plugins/configs` folder or you can just extend the `misc.lua` file
-also on that folder.
+New plugins are to be added to `lua/plugin_list.lua`. Each element of the
+`plugin` table will be passed to a packer `use` statement. As discussed above
+configurations for plugins can be either put into a separate folder in the
+`lua/plugins/configs` folder or you can just extend the `misc.lua` file also on
+that folder.
 
 ## Adding a colorscheme
 The colorscheme field on the `lua/config.lua` file is actually interpolated
