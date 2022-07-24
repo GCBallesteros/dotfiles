@@ -78,6 +78,7 @@ require("lspconfig").sumneko_lua.setup({
   on_attach = function(client, bufnr)
     client.resolved_capabilities.document_formatting = false
     client.resolved_capabilities.document_range_formatting = false
+    require("settings/keymap").enable_lsp_keymaps()
     navic_attach(client, bufnr)
   end,
 })
