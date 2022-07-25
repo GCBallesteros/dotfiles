@@ -9,7 +9,7 @@ return {
     },
   },
   startify_bookmarks = {
-    "~/.config/nvim/",
+    vim.env.MYVIMRC,
     "~/.zshrc",
   },
 }
