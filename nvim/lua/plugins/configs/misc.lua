@@ -84,6 +84,17 @@ g.jupytext_fmt = "py:hydrogen"
 -------------------
 g.NERDCreateDefaultMappings = 1
 
+--------------------
+-- nvim-colorizer --
+--------------------
+require("colorizer").setup({
+  "css",
+  "javascript",
+  "html",
+  "python",
+  "lua",
+})
+
 -----------
 -- Navic --
 -----------

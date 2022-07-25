@@ -40,6 +40,7 @@ return {
     "GCBallesteros/jupytext.vim", -- Open jupyter notebooks
     "jose-elias-alvarez/null-ls.nvim", -- For extra linting
     "gelguy/wilder.nvim", -- Wild menu!
+    "norcalli/nvim-colorizer.lua", -- Highlight colors
     -- Colorschemes
     "rafamadriz/neon",
     "folke/tokyonight.nvim",
