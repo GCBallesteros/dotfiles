@@ -87,6 +87,8 @@ g.NERDCreateDefaultMappings = 1
 --------------------
 -- nvim-colorizer --
 --------------------
+-- colorizers needs termguicolors to load correctly
+vim.opt.termguicolors = true
 require("colorizer").setup({
   "css",
   "javascript",
