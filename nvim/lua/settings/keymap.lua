@@ -27,6 +27,7 @@ keymap("n", "<leader>g", "<CMD>Telescope live_grep<CR>", opts)
 -- Floating terminal shortcuts
 keymap("n", "<F3>", "<CMD>FloatermToggle<CR>", opts)
 keymap("t", "<F3>", "<F3> <C-\\><C-N><CMD>FloatermToggle<CR>", opts)
+keymap("t", "<C-f>", "<CMD>FloatermNext<CR>", opts)
 
 -- Escape terminal key with ESC
 keymap("t", "<ESC>", "<C-\\><C-n>", opts)
