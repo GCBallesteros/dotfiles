@@ -52,7 +52,7 @@ end
 -----------------
 -- nvim-window --
 -----------------
-keymap("n", "<C-w>w", "<cmd>lua require('nvim-window').pick()<CR>", opts)
+keymap("n", "<space>w", "<cmd>lua require('nvim-window').pick()<CR>", opts)
 
 ----------
 -- Iron --
