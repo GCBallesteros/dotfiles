@@ -41,6 +41,8 @@ return {
     "jose-elias-alvarez/null-ls.nvim", -- For extra linting
     "gelguy/wilder.nvim", -- Wild menu!
     "norcalli/nvim-colorizer.lua", -- Highlight colors
+    "stevearc/dressing.nvim", -- better ui
+    "rcarriga/nvim-notify", -- fancy notifications
     -- Colorschemes
     "rafamadriz/neon",
     "folke/tokyonight.nvim",

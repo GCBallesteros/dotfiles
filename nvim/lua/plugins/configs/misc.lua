@@ -131,3 +131,15 @@ require("nvim-navic").setup({
     TypeParameter = " ",
   },
 })
+
+--------------
+-- dressing --
+--------------
+require('dressing').setup({})
+
+-----------------
+-- notify-nvim --
+-----------------
+local notify = require "notify"
+notify.setup({})
+vim.notify = notify
