@@ -11,5 +11,6 @@ return {
   startify_bookmarks = {
     vim.env.MYVIMRC,
     "~/.zshrc",
+    "~/.todo.txt"
   },
 }

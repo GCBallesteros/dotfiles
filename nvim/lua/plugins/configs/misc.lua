@@ -17,7 +17,7 @@ require("telescope").load_extension "fzy_native"
 -- Treesitter --
 ----------------
 require("nvim-treesitter.configs").setup({
-  ensure_installed = { "python", "rust", "julia", "lua", "c" },
+  ensure_installed = { "python", "rust", "julia", "lua", "c", "norg" },
   highlight = {
     enable = true, -- false will disable the whole extension
     disable = {}, -- list of language that will be disabled
@@ -135,7 +135,7 @@ require("nvim-navic").setup({
 --------------
 -- dressing --
 --------------
-require('dressing').setup({})
+require("dressing").setup({})
 
 -----------------
 -- notify-nvim --
@@ -143,3 +143,28 @@ require('dressing').setup({})
 local notify = require "notify"
 notify.setup({})
 vim.notify = notify
+
+--------------
+-- org mode --
+--------------
+--require("neorg").setup({
+--load = {
+--["core.defaults"] = {},
+--["core.norg.dirman"] = {
+--config = {
+--workspaces = {
+--work = "~/notes/work",
+--home = "~/notes/home",
+--gtd = "~/notes/gtd",
+--},
+--index = "index.norg",
+--},
+--},
+--["core.norg.concealer"] = {},
+--["core.gtd.base"] = {
+--config = {
+--workspace = "gtd",
+--},
+--},
+--},
+--})
