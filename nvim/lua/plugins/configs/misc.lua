@@ -144,27 +144,7 @@ local notify = require "notify"
 notify.setup({})
 vim.notify = notify
 
---------------
--- org mode --
---------------
---require("neorg").setup({
---load = {
---["core.defaults"] = {},
---["core.norg.dirman"] = {
---config = {
---workspaces = {
---work = "~/notes/work",
---home = "~/notes/home",
---gtd = "~/notes/gtd",
---},
---index = "index.norg",
---},
---},
---["core.norg.concealer"] = {},
---["core.gtd.base"] = {
---config = {
---workspace = "gtd",
---},
---},
---},
---})
+------------------
+-- trouble.nvim --
+------------------
+require("trouble").setup({})

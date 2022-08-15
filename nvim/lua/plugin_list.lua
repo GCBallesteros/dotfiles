@@ -48,5 +48,6 @@ return {
     "folke/tokyonight.nvim",
     { "catppuccin/nvim", as = "catppuccin" },
     "marko-cerovac/material.nvim",
+    "folke/trouble.nvim",
   },
 }

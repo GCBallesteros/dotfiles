@@ -39,7 +39,6 @@ keymap("t", "<ESC>", "<C-\\><C-n>", opts)
 function M.enable_lsp_keymaps()
   keymap("n", "<c-]>", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
   keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-  keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
   keymap("n", "ga", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
   keymap("n", "<Leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
 
@@ -75,5 +74,13 @@ keymap("n", "<CR>", "<Plug>(LoupeClearHighlight)", { noremap = false, silent = t
 --quickfix movement
 keymap("n", "]q", "<cmd>cn<CR>", opts)
 keymap("n", "[q", "<cmd>cp<CR>", opts)
+
+
+keymap("n", "<leader>xx", "<cmd>Trouble<cr>", { silent = true, noremap = true })
+keymap("n", "<leader>xw", "<cmd>Trouble workspace_diagnostics<cr>", { silent = true, noremap = true })
+keymap("n", "<leader>xd", "<cmd>Trouble document_diagnostics<cr>", { silent = true, noremap = true })
+keymap("n", "<leader>xl", "<cmd>Trouble loclist<cr>", { silent = true, noremap = true })
+keymap("n", "<leader>xq", "<cmd>Trouble quickfix<cr>", { silent = true, noremap = true })
+keymap("n", "gr", "<cmd>Trouble lsp_references<cr>", { silent = true, noremap = true })
 
 return M
