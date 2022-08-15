@@ -1,5 +1,9 @@
 # NVIM configuration
 
+This config in particular is minimal with respect to its deviations with respect
+to vanilla VIM. It is not minimal at all with respect to the number of plugins it
+uses. However, many of them are mostly cosmetic or act transparently.
+
 ## Additional dependencies
 - [fzy-lua-native](https://github.com/romgrk/fzy-lua-native)
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
