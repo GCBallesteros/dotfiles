@@ -22,8 +22,8 @@
     pkgs.imagemagick
     pkgs.jq
     pkgs.luajit
-    pkgs.neovim
     pkgs.nixfmt-classic
+    pkgs.nix-prefetch-github
     pkgs.nmap
     pkgs.nodejs
     pkgs.poetry
@@ -38,7 +38,6 @@
     pkgs.unzip
     pkgs.wget
     pkgs.whois
-    pkgs.nix-prefetch-github
   ];
 
   programs.direnv = {
@@ -85,15 +84,28 @@
   programs.pyenv = { enable = true; };
 
   home.file."${config.xdg.configHome}/nvim" = {
-    source = config.lib.file.mkOutOfStoreSymlink ./neovim;
+    source = config.lib.file.mkOutOfStoreSymlink
+      "${config.home.homeDirectory}/Documents/personal_repos/dotfiles/neovim";
     recursive = true;
   };
 
-  #xdg.configFile."tmux/tmux.conf".source = ./tmux/tmux.conf;
+  # To install the plugins prefix+I
+  home.file."${config.xdg.configHome}/tmux" = {
+    source = config.lib.file.mkOutOfStoreSymlink
+      "${config.home.homeDirectory}/Documents/personal_repos/dotfiles/tmux";
+    recursive = true;
+  };
 
   programs.fzf = {
     enable = true;
     enableZshIntegration = true;
+  };
+
+  programs.neovim = {
+    enable = true;
+    viAlias = true;
+    vimAlias = true;
+    defaultEditor = true;
   };
 
   programs.zsh = {
@@ -126,6 +138,5 @@
 
   home.sessionVariables = {
     PYENV_VIRTUALENV_DISABLE_PROMPT = 1;
-    EDITOR = "nvim";
   };
 }

@@ -4,4 +4,4 @@ vim.g.python3_host_prog = "/Users/guillem/.pyenv/versions/molten-nvim/bin/python
 require "config.lazy"
 
 -- Highlight group for nvim-window markeg
-vim.api.nvim_set_hl(0, "NVIMWINDOW", { fg = "#000000", bg = "#a2de91" })
+vim.api.nvim_set_hl(0, "NVIMWINDOW", { fg = "#000000", bg = "#a2ee91" })
