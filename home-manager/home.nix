@@ -12,13 +12,13 @@
     pkgs.curl
     pkgs.cmake
     pkgs.dbmate
+    pkgs.hurl
     pkgs.eza
     pkgs.fd
     pkgs.fzf
     pkgs.gdal
     pkgs.git
     pkgs.htop
-    pkgs.hurl
     pkgs.imagemagick
     pkgs.jq
     pkgs.luajit
@@ -28,7 +28,6 @@
     pkgs.nodejs
     pkgs.poetry
     (import ./python-packages.nix { pkgs = pkgs; })
-    pkgs.postgresql_15
     pkgs.qmk
     pkgs.ripgrep
     pkgs.rsync
