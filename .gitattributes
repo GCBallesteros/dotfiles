@@ -1,0 +1,1 @@
+home-manager/secrets.nix filter=git-crypt diff=git-crypt

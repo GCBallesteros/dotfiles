@@ -11,13 +11,12 @@
   home.packages = [
     pkgs.curl
     pkgs.cmake
-    pkgs.dbmate
-    pkgs.hurl
     pkgs.eza
     pkgs.fd
     pkgs.fzf
     pkgs.gdal
     pkgs.git
+    pkgs.git-crypt
     pkgs.htop
     pkgs.imagemagick
     pkgs.jq
@@ -41,7 +40,7 @@
 
   programs.direnv = {
     enable = true;
-    enableZshIntegration = true; # see note on other shells below
+    enableZshIntegration = true;
     nix-direnv.enable = true;
   };
 
@@ -137,5 +136,6 @@
 
   home.sessionVariables = {
     PYENV_VIRTUALENV_DISABLE_PROMPT = 1;
+    OPENAI_API_KEY = (import ./secrets.nix).OPENAI_API_KEY;
   };
 }
