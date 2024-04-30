@@ -83,14 +83,14 @@
 
   home.file."${config.xdg.configHome}/nvim" = {
     source = config.lib.file.mkOutOfStoreSymlink
-      "${config.home.homeDirectory}/Documents/personal_repos/dotfiles/neovim";
+      "${config.dotfiles}/neovim";
     recursive = true;
   };
 
   # To install the plugins prefix+I
   home.file."${config.xdg.configHome}/tmux" = {
     source = config.lib.file.mkOutOfStoreSymlink
-      "${config.home.homeDirectory}/Documents/personal_repos/dotfiles/tmux";
+      "${config.dotfiles}/tmux";
     recursive = true;
   };
 
@@ -114,10 +114,12 @@
     shellAliases = {
       sl = "eza --color=auto";
       ls = "eza --color=auto";
-      ll = "eza -lah";
-      la = "eza -la";
+      ll = "eza -lh";
+      la = "eza -a";
+      lla = "eza -lah";
       mkdir = "mkdir -p";
       cat = "bat";
+      update = "nix run ${config.dotfiles} -- switch --flake ${config.dotfiles}";
     };
     history = {
       size = 10000;

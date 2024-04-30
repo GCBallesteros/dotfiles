@@ -17,7 +17,7 @@
     homeConfigurations = {
       "guillem" = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs { system = "aarch64-darwin"; };
-        modules = [ ./home-manager/home.nix ];
+        modules = [ ./home-manager/home.nix ./options.nix ];
       };
     };
   };
