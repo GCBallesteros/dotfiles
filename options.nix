@@ -2,7 +2,7 @@
 
 {
   options.dotfiles = lib.mkOption {
-    type = lib.types.str;
+    type = lib.types.path;
     default = "/Users/guillem/.dotfiles";
   };
 }

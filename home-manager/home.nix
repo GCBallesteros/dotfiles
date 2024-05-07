@@ -9,6 +9,7 @@
   home.stateVersion = "22.05";
 
   home.packages = [
+    pkgs.bottom
     pkgs.curl
     pkgs.cmake
     pkgs.eza
@@ -17,6 +18,7 @@
     pkgs.gdal
     pkgs.git
     pkgs.git-crypt
+    pkgs.git-lfs
     pkgs.htop
     pkgs.imagemagick
     pkgs.jq
@@ -26,7 +28,7 @@
     pkgs.nmap
     pkgs.nodejs
     pkgs.poetry
-    (import ./python-packages.nix { pkgs = pkgs; })
+    (import ./python-packages.nix { inherit pkgs; })
     pkgs.qmk
     pkgs.ripgrep
     pkgs.rsync
@@ -81,16 +83,25 @@
 
   programs.pyenv = { enable = true; };
 
+  programs.zellij = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
+  # Symlinking program configurations
   home.file."${config.xdg.configHome}/nvim" = {
-    source = config.lib.file.mkOutOfStoreSymlink
-      "${config.dotfiles}/neovim";
+    source = config.lib.file.mkOutOfStoreSymlink "${config.dotfiles}/neovim";
     recursive = true;
   };
 
   # To install the plugins prefix+I
   home.file."${config.xdg.configHome}/tmux" = {
-    source = config.lib.file.mkOutOfStoreSymlink
-      "${config.dotfiles}/tmux";
+    source = config.lib.file.mkOutOfStoreSymlink "${config.dotfiles}/tmux";
+    recursive = true;
+  };
+
+  home.file."${config.xdg.configHome}/zellij" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.dotfiles}/zellij";
     recursive = true;
   };
 
@@ -119,7 +130,8 @@
       lla = "eza -lah";
       mkdir = "mkdir -p";
       cat = "bat";
-      update = "nix run ${config.dotfiles} -- switch --flake ${config.dotfiles}";
+      update =
+        "nix run ${config.dotfiles} -- switch --flake ${config.dotfiles}";
     };
     history = {
       size = 10000;
