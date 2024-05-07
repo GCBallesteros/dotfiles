@@ -34,7 +34,6 @@
     pkgs.rsync
     pkgs.rustup
     pkgs.stylua
-    pkgs.tmux
     pkgs.unzip
     pkgs.wget
     pkgs.whois
@@ -91,12 +90,6 @@
   # Symlinking program configurations
   home.file."${config.xdg.configHome}/nvim" = {
     source = config.lib.file.mkOutOfStoreSymlink "${config.dotfiles}/neovim";
-    recursive = true;
-  };
-
-  # To install the plugins prefix+I
-  home.file."${config.xdg.configHome}/tmux" = {
-    source = config.lib.file.mkOutOfStoreSymlink "${config.dotfiles}/tmux";
     recursive = true;
   };
 
