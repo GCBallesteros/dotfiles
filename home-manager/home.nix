@@ -69,7 +69,21 @@
   programs.starship = {
     enable = true;
     enableZshIntegration = true;
-    settings = { username = { disabled = false; }; };
+    settings = {
+      lua = { disabled = true; };
+      c = { disabled = true; };
+      rust = { disabled = true; };
+      python = {
+        version_format = "\${major}.\${minor}";
+        format =
+          "[\${symbol}\${pyenv_prefix}(\${version} )(\\($virtualenv\\) )]($style)";
+      };
+      nix-shell = {
+        format = "[$symbol$state( \\($name\\))]($style)";
+
+      };
+      package = { disabled = true; };
+    };
   };
 
   programs.bat = {
