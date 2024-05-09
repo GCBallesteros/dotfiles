@@ -141,6 +141,8 @@
       cat = "bat";
       update =
         "nix run ${config.dotfiles} -- switch --flake ${config.dotfiles}";
+      cd = "z";
+      cdi = "zi";
     };
     history = {
       size = 10000;
