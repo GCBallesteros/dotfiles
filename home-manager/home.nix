@@ -8,35 +8,35 @@
 
   home.stateVersion = "22.05";
 
-  home.packages = [
-    pkgs.bottom
-    pkgs.curl
-    pkgs.cmake
-    pkgs.eza
-    pkgs.fd
-    pkgs.fzf
-    pkgs.gdal
-    pkgs.git
-    pkgs.git-crypt
-    pkgs.git-lfs
-    pkgs.htop
-    pkgs.imagemagick
-    pkgs.jq
-    pkgs.luajit
-    pkgs.nixfmt-classic
-    pkgs.nix-prefetch-github
-    pkgs.nmap
-    pkgs.nodejs
-    pkgs.poetry
+  home.packages =with pkgs; [
+    bottom
+    curl
+    cmake
+    eza
+    fd
+    fzf
+    gdal
+    git
+    git-crypt
+    git-lfs
+    htop
+    imagemagick
+    jq
+    luajit
+    nixfmt-classic
+    nix-prefetch-github
+    nmap
+    nodejs
+    poetry
     (import ./python-packages.nix { inherit pkgs; })
-    pkgs.qmk
-    pkgs.ripgrep
-    pkgs.rsync
-    pkgs.rustup
-    pkgs.stylua
-    pkgs.unzip
-    pkgs.wget
-    pkgs.whois
+    qmk
+    ripgrep
+    rsync
+    rustup
+    stylua
+    unzip
+    wget
+    whois
   ];
 
   programs.direnv = {
@@ -54,6 +54,10 @@
     #  gpg.format = "ssh";
     #  user.signingkey = "~/.ssh/github.pub";
     #};
+  };
+
+  programs.zoxide = {
+    enable = true;
   };
 
   programs.ssh = {
@@ -145,6 +149,8 @@
       save = 10000;
       ignorePatterns =
         [ "ls" "[bf]g" "exit" "reset" "clear" "cd" "cd .." "cd.." ];
+      ignoreSpace = true;
+      ignoreDups = true;
       share = true;
     };
 
