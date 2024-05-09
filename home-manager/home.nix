@@ -8,7 +8,7 @@
 
   home.stateVersion = "22.05";
 
-  home.packages =with pkgs; [
+  home.packages = with pkgs; [
     bottom
     curl
     cmake
@@ -56,9 +56,7 @@
     #};
   };
 
-  programs.zoxide = {
-    enable = true;
-  };
+  programs.zoxide = { enable = true; };
 
   programs.ssh = {
     enable = true;
