@@ -1,6 +1,11 @@
 { pkgs }:
-
-pkgs.python3.withPackages (p:
+let
+  python3Optimized = pkgs.python3.override {
+    enableOptimizations = true;
+    reproducibleBuild = false;
+    self = python3Optimized;
+  };
+in python3Optimized.withPackages (p:
   with p; [
     ipython # interactive shell
     jupyter # interactive notebooks
