@@ -1,6 +1,11 @@
 { config, pkgs, ... }:
+let
+  pyenv = with pkgs;
+    (import ../pyenv/pyenv.nix {
+      inherit lib stdenv fetchFromGitHub installShellFiles git;
+    });
 
-{
+in {
   programs.home-manager.enable = true;
 
   home.username = "guillem";
@@ -29,6 +34,7 @@
     nodejs
     poetry
     (import ./python-packages.nix { inherit pkgs; })
+    pyenv
     qmk
     ripgrep
     rsync
@@ -96,7 +102,7 @@
     };
   };
 
-  programs.pyenv = { enable = true; };
+  #programs.pyenv = { enable = true; };
 
   programs.zellij = {
     enable = true;
@@ -157,7 +163,7 @@
     # Still need to remember to install pyenv-virtualenv manually
     # https://github.com/pyenv/pyenv-virtualenv
     initExtra = ''
-      eval "$(pyenv virtualenv-init -)"
+      export PYENV_ROOT="${config.xdg.dataHome}/pyenv"
     '';
   };
 

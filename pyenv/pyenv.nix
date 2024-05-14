@@ -1,6 +1,10 @@
-{ lib, stdenv, fetchFromGitHub, installShellFiles }:
+{ lib, stdenv, fetchFromGitHub, installShellFiles, git }:
 
-stdenv.mkDerivation rec {
+let
+  pyenv-venv =
+    (import ./pyenv-virtualenv.nix { inherit stdenv fetchFromGitHub git; });
+
+in stdenv.mkDerivation rec {
   pname = "pyenv";
   version = "2.4.1";
 
@@ -12,7 +16,7 @@ stdenv.mkDerivation rec {
   };
 
   nativeBuildInputs = [ installShellFiles ];
-  #buildInputs = [ (import ./pyenv-virtualenv.nix) ];
+  buildInputs = [ pyenv-venv ];
 
   configureScript = "src/configure";
 
@@ -25,6 +29,7 @@ stdenv.mkDerivation rec {
     cp -R bin "$out/bin"
     cp -R libexec "$out/libexec"
     cp -R plugins "$out/plugins"
+    cp -R "${pyenv-venv}/." "$out/plugins/pyenv-virtualenv/"
 
     runHook postInstall
   '';
