@@ -17,6 +17,7 @@ in {
     bottom
     curl
     cmake
+    dust
     eza
     fd
     fzf
