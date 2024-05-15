@@ -161,10 +161,9 @@ in {
       share = true;
     };
 
-    # Still need to remember to install pyenv-virtualenv manually
-    # https://github.com/pyenv/pyenv-virtualenv
     initExtra = ''
       export PYENV_ROOT="${config.xdg.dataHome}/pyenv"
+      eval "$(${pkgs.lib.getExe pyenv} init - zsh)"
     '';
   };
 
