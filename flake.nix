@@ -15,7 +15,7 @@
     defaultPackage.aarch64-darwin = home-manager.defaultPackage.aarch64-darwin;
 
     homeConfigurations = {
-      "guillem" = home-manager.lib.homeManagerConfiguration {
+      "guillem@m2" = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs { system = "aarch64-darwin"; };
         modules = [ ./home-manager/home.nix ./options.nix ];
       };
