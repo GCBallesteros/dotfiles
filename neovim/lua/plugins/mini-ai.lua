@@ -14,6 +14,7 @@ return {
     event = "VeryLazy",
     opts = function(_, opts)
       local nn = require "notebook-navigator"
+      local ai = require "mini.ai"
       local extra_objects = { h = nn.miniai_spec, g = all_buffer_object }
 
       -- Make sure we have a place to put the custom_textobjects
@@ -24,6 +25,8 @@ return {
       for k, v in pairs(extra_objects) do
         opts.custom_textobjects[k] = v
       end
+
+      opts.custom_textobjects["f"] = ai.gen_spec.treesitter({ a = "@function.outer", i = "@function.inner" })
       return opts
     end,
   },
