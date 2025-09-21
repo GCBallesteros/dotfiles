@@ -1,0 +1,20 @@
+# Aliases
+alias sl="eza --color=auto"
+alias ls="eza --color=auto"
+alias ll="eza -lh"
+alias la="eza -a"
+alias lla="eza -lah"
+alias mkdir="mkdir -p"
+alias cd="z"
+alias cdi="zi"
+
+# Configure Zsh History
+HISTSIZE=10000
+SAVEHIST=10000
+HISTIGNORE="ls:[bf]g:exit:reset:clear:cd:cd ..:cd.."
+HISTCONTROL=ignorespace:ignoredups
+HISTFILE=~/.zsh_history
+setopt share_history
+
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
