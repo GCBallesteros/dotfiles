@@ -1,6 +1,9 @@
 # Statup starship
 eval "$(starship init zsh)"
 
+# Start zoxide
+eval "$(zoxide init zsh)"
+
 # Aliases
 alias sl="eza --color=auto"
 alias ls="eza --color=auto"
@@ -21,3 +24,7 @@ setopt share_history
 
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
+
+export EDITOR=nvim
+
+. "$HOME/.local/bin/env"
