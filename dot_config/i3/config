@@ -20,7 +20,6 @@ new_window pixel 4
 # Set inner/outer gaps
 gaps inner 6
 gaps outer 3
-smart_gaps on
 
 # show window title bars (not officially supported with i3gaps)
 #default_border normal
@@ -293,7 +292,7 @@ exec --no-startup-id ~/.screenlayout/monitor.sh
 
 # set wallpaper
 # exec --no-startup-id sleep 2 && nitrogen --restore
-exec --no-startup-id sleep 1 && feh --bg-fill /usr/share/endeavouros/backgrounds/endeavouros-wallpaper.png
+exec --no-startup-id sleep 1 && feh --bg-fill ~/Wallpapers/tokyo_pixel_art.jpg
 
 # set powersavings for display:
 exec --no-startup-id xset s 480 dpms 600 600 600
