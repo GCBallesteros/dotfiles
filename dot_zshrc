@@ -1,3 +1,6 @@
+# Statup starship
+eval "$(starship init zsh)"
+
 # Aliases
 alias sl="eza --color=auto"
 alias ls="eza --color=auto"
