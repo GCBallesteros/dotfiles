@@ -15,6 +15,7 @@ pacman -S \
   xclip \
   thunderbird \
   jq \
+  fd \
   neovim
 
 sudo yay -S nerd-fonts
