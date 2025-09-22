@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+set -euo pipefail
+IFS=$'\n\t'
+
+. "$HOME/.local/bin/env"
+
+# Use IPython startup files for preloading
+IPYTHONDIR="${XDG_CONFIG_HOME:-$HOME/.config}/ipython"
+STARTUP="$IPYTHONDIR/profile_default/startup"
+
+mkdir -p "$STARTUP"
+
+cat > "$STARTUP/00-imports.py" <<'EOF'
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from rich import print
+EOF
+
+packages=(numpy matplotlib pandas scipy rich)
+
+# Build the list of --with arguments
+with_args=()
+for pkg in "${packages[@]}"; do
+  with_args+=(--with "$pkg")
+done
+
+uvx "${with_args[@]}" ipython
+

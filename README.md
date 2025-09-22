@@ -38,10 +38,5 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 curl https://sh.rustup.rs -sSf | sh
 
 # ToDo
-improve config for zsh   zsh-tab and completions and zinit
-bring nvim config
-- shortcuts for floating terminal with ipython running
-adjust thunar GTK theme
-
-when click date open calendar it
-should open thunderbird
+- Better theme for thunar and GTK
+- Click on date and open thunderbird calendar

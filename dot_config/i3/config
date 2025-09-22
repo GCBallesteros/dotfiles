@@ -155,6 +155,7 @@ bindsym $mod+a focus parent
 
 # open new empty workspace
 bindsym $mod+Shift+n exec --no-startup-id ~/.config/i3/scripts/empty_workspace
+for_window [class="floating_ipython"] floating enable, move position center, resize set 600 400
 
 # Multimedia Keys
 
@@ -188,12 +189,17 @@ bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 bindsym $mod+p exec --no-startup-id ~/.config/i3/scripts/audio-device-switch
 
 ## App shortcuts
-bindsym $mod+w exec --no-startup-id /usr/bin/firefox
-bindsym $mod+n exec --no-startup-id /usr/bin/thunar
+# bindsym $mod+w exec --no-startup-id /usr/bin/firefox
+# bindsym $mod+n exec --no-startup-id /usr/bin/thunar
 bindsym Print exec --no-startup-id scrot ~/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to ~/$(date +"%Y-%m-%d-%T")-screenshot.png"
 
 # Power Profiles menu switcher (rofi)
 bindsym $mod+Shift+p exec --no-startup-id ~/.config/i3/scripts/power-profiles
+
+# Launch a floating kitty with ipython
+bindsym $mod+n exec --no-startup-id kitty --class=floating_ipython -e ~/.config/scripts/ipython-float
+#for_window [class="floating_ipython"] floating enable, move position center, resize set 30 30
+
 
 ##########################################
 # configuration for workspace behaviour: #
