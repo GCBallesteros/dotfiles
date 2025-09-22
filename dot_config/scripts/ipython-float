@@ -25,5 +25,5 @@ for pkg in "${packages[@]}"; do
   with_args+=(--with "$pkg")
 done
 
-exec uvx "${with_args[@]}" ipython
+uvx "${with_args[@]}" ipython
 
