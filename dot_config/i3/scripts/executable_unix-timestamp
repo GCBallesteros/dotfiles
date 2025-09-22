@@ -1,0 +1,18 @@
+#!/bin/bash
+
+UNIX_TIMESTAMP="$(date '+%s')"
+
+# Handle clicks
+case $BLOCK_BUTTON in
+    1)  # Left click
+        echo -n "$UNIX_TIMESTAMP" | xclip -selection clipboard
+        ;;
+    2)  # Middle click
+        echo -n "$UNIX_TIMESTAMP" | xclip -selection clipboard
+        ;;
+    3)  # Right click
+        echo -n "$UNIX_TIMESTAMP" | xclip -selection clipboard
+        ;;
+esac
+
+echo " $UNIX_TIMESTAMP "
