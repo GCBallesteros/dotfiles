@@ -18,25 +18,25 @@ pacman -S \
   fd \
   neovim
 
+cd .config/i3/scripts/bandwidth
+make
+
 sudo yay -S nerd-fonts
+sudo yay -S tokyonight-gtk-theme-git 
 
 chsh to zsh
 
-# Install zinit
+# Install zinit, staship, uv, nvm and rus
 bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
-
-# Install starship
 curl -sS https://starship.rs/install.sh | sh
-
-# Install uv
 curl -LsSf https://astral.sh/uv/install.sh | sh
-
-# Install node via nvm
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
-
-# Install rust
 curl https://sh.rustup.rs -sSf | sh
 
 # ToDo
-- Better theme for thunar and GTK
+- Update spacing on i3bar (today)
+- Better rofi
 - Click on date and open thunderbird calendar
+- Improve colors of i3 (open multiple windows )
+
+# Maintenance guide
