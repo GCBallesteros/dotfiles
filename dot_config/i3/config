@@ -192,12 +192,12 @@ bindsym XF86AudioNext exec --no-startup-id playerctl next
 bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
 # toggle between audio devices for output
-bindsym $mod+p exec --no-startup-id ~/.config/i3/scripts/audio-device-switch
+bindsym $mod+Control+p exec --no-startup-id ~/.config/i3/scripts/audio-device-switch
 
 ## App shortcuts
 # bindsym $mod+w exec --no-startup-id /usr/bin/firefox
 # bindsym $mod+n exec --no-startup-id /usr/bin/thunar
-bindsym Print exec --no-startup-id scrot ~/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to ~/$(date +"%Y-%m-%d-%T")-screenshot.png"
+bindsym $mod+p exec --no-startup-id flameshot gui
 
 # Power Profiles menu switcher (rofi)
 bindsym $mod+Shift+p exec --no-startup-id ~/.config/i3/scripts/power-profiles
@@ -363,42 +363,33 @@ exec --no-startup-id sleep 7 && firefox https://github.com/endeavouros-team/ende
 # color settings for bar and windows #
 ######################################
 
-set $color1 #3B4252
-set $color0 #2A3038
-set $color2 #D8DEE9
+# Tokyo Night Moon Theme from Folke
+set $bg #222436
+set $bg_dark #1e2030
+set $bg_highlight #2f334d
+set $blue #82aaff
+set $blue0 #3e68d7
+set $blue1 #65bcff
+set $blue2 #0db9d7
+set $blue6 #b4f9f8
+set $blue7 #394b70
+set $comment #636da6
+set $cyan #86e1fc
+set $dark3 #545c7e
+set $dark5 #737aa2
+set $terminal_black #444a73
+set $fg #c8d3f5
+set $red1 #c53b53
+set $orange #ff966c
 set $color3 #88c0d0
-set $color4 #d08770
-set $color5 #5e81ac
 set $color6 #8fbcbb
-set $color7 #ff757f
 
-set $bar_color_background            #3B4252
-set $bar_color_foreground            #D8DEE9
-set $bar_color_statusline            #D8DEE9
-set $bar_color_separator             #D8DEE9
-
-set $bar_color_workspace_focused_bg  #88c0d0
-set $bar_color_workspace_focused_fg  #2E3440
-set $bar_color_workspace_active_bg   #8fbcbb
-set $bar_color_workspace_active_fg   #2E3440
-set $bar_color_workspace_inactive_bg #5e81ac
-set $bar_color_workspace_inactive_fg #2E3440
-set $bar_color_workspace_urgent_bg   #d08770
-set $bar_color_workspace_urgent_fg   #2E3440
-
-set $wm_color_border_active_bg       #d08770
-set $wm_color_border_active_fg       #1f2335
-set $wm_color_border_inactive_bg     #2E3440
-set $wm_color_border_inactive_fg     #1f2335
-set $wm_color_background             #1f2335
-
-
-client.focused          $color4   $color4   $color0   $color4   $color4
-client.focused_inactive $color4 $color4 $color0 $color4 $color4
-client.unfocused        $color4 $color4 $color0 $color4 $color0
-client.urgent           $color4 $color4 $color0 $color4 $color4
-client.placeholder      $color4 $color4 $color0 $color4 $color4
-client.background       $color4
+client.focused          $orange   $orange   $terminal_black   $orange   $orange
+client.focused_inactive $orange $orange $terminal_black $orange $orange
+client.unfocused        $orange $orange $terminal_black $orange $terminal_black
+client.urgent           $orange $orange $terminal_black $orange $orange
+client.placeholder      $orange $orange $terminal_black $orange $orange
+client.background       $orange
 
 ############################################
 # bar settings (input comes from i3blocks) #
@@ -416,14 +407,14 @@ bar {
    id "bar-1"
    strip_workspace_numbers yes
    colors {
-     separator      $color2
-     background     $color0
-     statusline     $color2
+     separator      $fg
+     background     $terminal_black
+     statusline     $fg
 
-     focused_workspace  $color4 $color4 $color1 $wm_color_border_active_bg   $wm_color_border_active_bg
-     active_workspace   $color4 $color4 $color1 $wm_color_border_inactive_bg $wm_color_border_inactive_bg
-     inactive_workspace $color4 $color0 $color2 $wm_color_border_inactive_bg $wm_color_border_inactive_bg
-     urgent_workspace   $color7 $color7 $color1 $wm_color_border_inactive_bg $wm_color_border_inactive_bg
+     focused_workspace  $orange $orange $bg $orange   $orange
+     active_workspace   $orange $orange $bg $bg $bg
+     inactive_workspace $orange $terminal_black $fg $bg $bg
+     urgent_workspace   $red1 $red1 $bg $bg $bg
    }
 }
 

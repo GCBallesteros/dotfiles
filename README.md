@@ -16,6 +16,8 @@ pacman -S \
   thunderbird \
   jq \
   fd \
+  flameshot \
+  zellij \
   neovim
 
 cd .config/i3/scripts/bandwidth
@@ -34,9 +36,11 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 curl https://sh.rustup.rs -sSf | sh
 
 # ToDo
-- Update spacing on i3bar (today)
+- Fix keybinds menu (today)
+- Add zellij - use zellij compact and show hints when unlock (today)
+- zellij tokyo night
+- Improve colors of i3 (open multiple windows ) (today)
 - Better rofi
 - Click on date and open thunderbird calendar
-- Improve colors of i3 (open multiple windows )
 
 # Maintenance guide

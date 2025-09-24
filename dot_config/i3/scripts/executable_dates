@@ -16,4 +16,4 @@ case $BLOCK_BUTTON in
         ;;
 esac
 
-echo " $DATE"
+echo "$DATE"

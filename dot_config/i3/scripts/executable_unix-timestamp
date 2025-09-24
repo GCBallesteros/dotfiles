@@ -15,4 +15,4 @@ case $BLOCK_BUTTON in
         ;;
 esac
 
-echo " $UNIX_TIMESTAMP "
+echo "<span>$UNIX_TIMESTAMP</span>"
