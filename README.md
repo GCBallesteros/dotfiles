@@ -23,7 +23,7 @@ pacman -S \
 cd .config/i3/scripts/bandwidth
 make
 
-sudo yay -S nerd-fonts
+sudo yay -S nerd-fonts git-delta
 sudo yay -S tokyonight-gtk-theme-git 
 
 chsh to zsh
@@ -38,7 +38,6 @@ curl https://sh.rustup.rs -sSf | sh
 # ToDo
 - Better rofi
 - Fix keybinds menu (today)
-- More kitty extras like moving cursor. Go shopping
 - gitconfig
 - instructions on getting ssh keys
 - Click on date and open thunderbird calendar

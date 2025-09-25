@@ -1,0 +1,43 @@
+[user]
+    name = Your Name
+    email = your@email.com
+
+[core]
+    editor = nvim
+    pager = delta
+    autocrlf = input
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true           # Use n/p keys to move between diff sections
+    line-numbers = true
+    side-by-side = true       # Split diff view
+    syntax-theme = Dracula    # Or any delta-supported theme
+
+[merge]
+    conflictstyle = diff3     # More context in merge conflicts
+    tool = vimdiff            # Or meld, kdiff3, etc.
+
+[mergetool]
+    prompt = false
+
+[pull]
+    rebase = true             # Rebase by default instead of merge
+
+[rebase]
+    autosquash = true         # Auto-squash fixup!/squash! commits
+
+[color]
+    ui = auto
+
+[alias]
+    s  = status -sb
+    lg = log --oneline --graph --decorate --all
+    co = checkout
+    br = branch
+    cm = commit -m
+    amend = commit --amend --no-edit
+    st = status
+
