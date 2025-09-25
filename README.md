@@ -5,7 +5,9 @@ Brief installation guide. I assume I'm starting from afresh Endevour OS i3wm ins
 1. Update the mirrors
 2. Update the system fully
 
-pacman -S \
+3. Install a bunch of software
+```bash
+sudo pacman -S \
   zsh \
   kitty \
   chezmoi \
@@ -20,15 +22,19 @@ pacman -S \
   zellij \
   neovim
 
+sudo yay -S \
+  tokyonight-gtk-theme-git \
+  nerd-fonts \
+  git-delta
+
+# Build the bandwidth program for i3Blocks
 cd .config/i3/scripts/bandwidth
 make
 
-sudo yay -S nerd-fonts git-delta
-sudo yay -S tokyonight-gtk-theme-git 
+# Change the shell to  zsh
+chsh
 
-chsh to zsh
-
-# Install zinit, staship, uv, nvm and rus
+# Install zinit, staship, uv, nvm and rust
 bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
 curl -sS https://starship.rs/install.sh | sh
 curl -LsSf https://astral.sh/uv/install.sh | sh
@@ -36,15 +42,19 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 curl https://sh.rustup.rs -sSf | sh
 
 # Install tokyo night theme for rofi
-```bash
 sudo cp /path/to/this/repo/root/tokyonight.rasi \
         /usr/share/rofi/themes
 ```
 
+# Generating ssh keys
+```bash
+ssh-keygen -t ed25519 -C "comment"
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/privatekeyfile
+```
+# Maintenance guide
 
 # ToDo
 - Fix keybinds menu (today)
-- instructions on getting ssh keys
 - Click on date and open thunderbird calendar
 
-# Maintenance guide
