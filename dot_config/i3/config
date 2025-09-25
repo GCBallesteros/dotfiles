@@ -7,7 +7,7 @@
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango: Noto Sans Regular 10
-font pango: JetBrains Mono 10
+font pango: JetBrains Mono Nerd Font 10
 # font pango: JetBrainsMono Nerd Font 10
 
 # set the mod key to the winkey:
@@ -104,7 +104,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # keybinding in fancy rofi (automated):
-bindsym F1 exec --no-startup-id ~/.config/i3/scripts/keyhint-2
+bindsym $mod+y exec --no-startup-id ~/.config/i3/scripts/keyhint-2
 # alternative
 # keybinding list in editor:
 # bindsym $mod+F1 exec --no-startup-id xed ~/.config/i3/keybindings
@@ -424,12 +424,12 @@ bar {
 ## rofi bindings fancy application menu
 
 bindsym $mod+d exec --no-startup-id rofi -modi drun -show drun \
-        -config ~/.config/rofi/rofidmenu.rasi
+        -config ~/.config/rofi/config.rasi
 
 ## rofi bindings for window menu
 
 bindsym $mod+t exec --no-startup-id rofi -show window \
-        -config ~/.config/rofi/rofidmenu.rasi
+        -config ~/.config/rofi/config.rasi
 
 ## rofi bindings to manage clipboard (install rofi-greenclip from the AUR)
 

@@ -35,10 +35,10 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 curl https://sh.rustup.rs -sSf | sh
 
+# Install tokyo night theme for rofi
+
 # ToDo
-- Better rofi
 - Fix keybinds menu (today)
-- gitconfig
 - instructions on getting ssh keys
 - Click on date and open thunderbird calendar
 

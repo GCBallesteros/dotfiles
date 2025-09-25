@@ -11,7 +11,7 @@
 # $HOME/.config/rofi/powermenu.rasi
 # set to be used in i3wm
 
-ROFI_THEME="${HOME}/.config/rofi/powermenu.rasi"
+ROFI_THEME="${HOME}/.config/rofi/config.rasi"
 # Define possible lock scripts/commands (edit this list as you like)
 LOCK_SCRIPTS=("~/.config/i3/scripts/blur-lock" "i3lock")
 
