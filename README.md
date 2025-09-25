@@ -55,6 +55,5 @@ ssh-add ~/.ssh/privatekeyfile
 # Maintenance guide
 
 # ToDo
-- Fix keybinds menu (today)
 - Click on date and open thunderbird calendar
 
