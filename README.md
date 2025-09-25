@@ -36,9 +36,11 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 curl https://sh.rustup.rs -sSf | sh
 
 # ToDo
-- Improve colors of i3 (open multiple windows ) (today)
 - Better rofi
 - Fix keybinds menu (today)
+- More kitty extras like moving cursor. Go shopping
+- gitconfig
+- instructions on getting ssh keys
 - Click on date and open thunderbird calendar
 
 # Maintenance guide

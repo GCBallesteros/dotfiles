@@ -385,8 +385,8 @@ set $color3 #88c0d0
 set $color6 #8fbcbb
 
 client.focused          $orange   $orange   $terminal_black   $orange   $orange
-client.focused_inactive $orange $orange $terminal_black $orange $orange
-client.unfocused        $orange $orange $terminal_black $orange $terminal_black
+client.focused_inactive $orange $orange $bg_dark $orange $bg_dark
+client.unfocused        $orange $orange $bg_dark $orange $bg_dark
 client.urgent           $orange $orange $terminal_black $orange $orange
 client.placeholder      $orange $orange $terminal_black $orange $orange
 client.background       $orange
@@ -398,22 +398,21 @@ client.background       $orange
 # Start i3bar to display a workspace bar
 # (plus the system information i3status finds out, if available)
 bar {
-   # font pango: Noto Sans Regular 10
    font pango: JetBrains Mono 12
    status_command i3blocks -c ~/.config/i3/i3blocks.conf
    position bottom
    #tray_output primary
-   tray_padding 0
+   tray_padding 4
    id "bar-1"
    strip_workspace_numbers yes
    colors {
      separator      $fg
-     background     $terminal_black
+     background     $bg_highlight
      statusline     $fg
 
      focused_workspace  $orange $orange $bg $orange   $orange
      active_workspace   $orange $orange $bg $bg $bg
-     inactive_workspace $orange $terminal_black $fg $bg $bg
+     inactive_workspace $orange $bg_highlight $fg $bg $bg
      urgent_workspace   $red1 $red1 $bg $bg $bg
    }
 }
