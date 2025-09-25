@@ -36,11 +36,9 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 curl https://sh.rustup.rs -sSf | sh
 
 # ToDo
-- Fix keybinds menu (today)
-- Add zellij - use zellij compact and show hints when unlock (today)
-- zellij tokyo night
 - Improve colors of i3 (open multiple windows ) (today)
 - Better rofi
+- Fix keybinds menu (today)
 - Click on date and open thunderbird calendar
 
 # Maintenance guide
