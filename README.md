@@ -36,6 +36,11 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 curl https://sh.rustup.rs -sSf | sh
 
 # Install tokyo night theme for rofi
+```bash
+sudo cp /path/to/this/repo/root/tokyonight.rasi \
+        /usr/share/rofi/themes
+```
+
 
 # ToDo
 - Fix keybinds menu (today)
