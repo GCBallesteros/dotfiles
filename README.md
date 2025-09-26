@@ -74,11 +74,6 @@ while `pacnew` are created when a package upgrade would modify an existing confi
    one is specific to my location.
    Immediately followed by: `yay -Syyu`
 3. (Monthly) Update EOS mirrors: `eos-rankmirrors --verbose` again always followed immediately by `yay -Syyu`
-4. Cleanup the [jouranl](https://wiki.archlinux.org/title/Systemd/Journal) logs. You can have `journalctl --rotate --vacuum-time=4weeks` on cronjob
-
-# ToDo
-- Improved keyhints menu
-- Open a default Thunderbird
-- Click on date and open thunderbird calendar
+4. Cleanup the [journal](https://wiki.archlinux.org/title/Systemd/Journal) logs. You can have `journalctl --rotate --vacuum-time=4weeks` on cronjob
 
 
