@@ -384,11 +384,11 @@ set $orange #ff966c
 set $color3 #88c0d0
 set $color6 #8fbcbb
 
-client.focused          $orange   $orange   $terminal_black   $orange   $orange
-client.focused_inactive $orange $orange $bg_dark $orange $bg_dark
-client.unfocused        $orange $orange $bg_dark $orange $bg_dark
-client.urgent           $orange $orange $terminal_black $orange $orange
-client.placeholder      $orange $orange $terminal_black $orange $orange
+client.focused          $orange $orange         $bg_dark        $orange $orange
+client.focused_inactive $orange $orange         $bg_dark        $orange $bg_dark
+client.unfocused        $orange $terminal_black $dark5          $orange $bg_dark
+client.urgent           $orange $orange         $terminal_black $orange $orange
+client.placeholder      $orange $orange         $terminal_black $orange $orange
 client.background       $orange
 
 ############################################
