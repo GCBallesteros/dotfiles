@@ -70,4 +70,28 @@ zinit light zsh-users/zsh-autosuggestions
 # Fast syntax-highlighting must be last
 zinit light zdharma-continuum/fast-syntax-highlighting
 
+# Wrapper around the original _zellij
+_zellij_session_wrapper() {
+  local -a sessions
+  sessions=(${(f)"$(zellij ls -ns 2>/dev/null)"})
 
+  # If completing after "zellij attach ..." or "zellij kill ..."
+  if (( CURRENT > 2 )); then
+    case $words[2] in
+      (attach|a|kill|k)
+        _describe 'sessions' sessions
+        return
+        ;;
+    esac
+  fi
+
+  # Otherwise, delegate to the original _zellij if it exists
+  if whence -w _zellij >/dev/null; then
+    _zellij "$@"
+  else
+    _default
+  fi
+}
+
+# Replace zellij completion with our wrapper
+compdef _zellij_session_wrapper zellij

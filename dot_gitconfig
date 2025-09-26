@@ -1,6 +1,6 @@
 [user]
-    name = Your Name
-    email = your@email.com
+    name = Guillem Ballesteros
+    email = dev+github@maxwellrules.com
 
 [core]
     editor = nvim
@@ -39,5 +39,4 @@
     br = branch
     cm = commit -m
     amend = commit --amend --no-edit
-    st = status
 
