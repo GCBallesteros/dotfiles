@@ -44,6 +44,9 @@ curl https://sh.rustup.rs -sSf | sh
 # Install tokyo night theme for rofi
 sudo cp /path/to/this/repo/root/tokyonight.rasi \
         /usr/share/rofi/themes
+
+# Bring in the dotfiles
+chezmoi init --apply GCBallesteros
 ```
 
 # Generating ssh keys
@@ -55,5 +58,6 @@ ssh-add ~/.ssh/privatekeyfile
 # Maintenance guide
 
 # ToDo
+- Maintenance guide
 - Click on date and open thunderbird calendar
 

@@ -1,0 +1,19 @@
+#!/bin/sh
+
+layout=$(i3-msg -t get_tree \
+  | jq -r '.. | objects
+              | select(
+                 (.nodes? | arrays | any(.focused)) or
+                 (.floating_nodes? | arrays | any(.focused))
+                )
+              | .layout' \
+  | head -n1)
+
+case "$layout" in
+  splith)   echo "Split - H";;
+  splitv)   echo "Split - V";;
+  stacked) echo "Stacked  ";;
+  tabbed)   echo "Tabbed   ";;
+  *)        echo "$layout";;
+esac
+
