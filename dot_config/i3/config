@@ -345,10 +345,8 @@ exec --no-startup-id sleep 7 && firefox https://github.com/endeavouros-team/ende
 #exec --no-startup-id sleep 3 && thunar
 
 
-# Start Thunderbird on the comms workspace 10
-assign [class="thunderbird"] 10:󰤉
+assign [class="Thunderbird"] 10:󰤉
 exec --no-startup-id thunderbird
-
 ## system tray
 
 # if you do not use dex: exec --no-startup-id dex --autostart --environment i3
